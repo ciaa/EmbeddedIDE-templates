@@ -1,5 +1,5 @@
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/app/inc/programa.h ./app/inc/programa.h
---- a_IOCTOC/app/inc/programa.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/app/inc/programa.h ./app/inc/programa.h
+--- a_Pk9wCu/app/inc/programa.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./app/inc/programa.h	2017-03-15 19:41:40.808697944 -0300
 @@ -0,0 +1,97 @@
 +/* Copyright (c) 2017, Eric Pernia.
@@ -99,8 +99,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +
 +/*==================[end of file]============================================*/
 +#endif /* _PROGRAMA_H_ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/app/src/programa.c ./app/src/programa.c
---- a_IOCTOC/app/src/programa.c	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/app/src/programa.c ./app/src/programa.c
+--- a_Pk9wCu/app/src/programa.c	1969-12-31 21:00:00.000000000 -0300
 +++ ./app/src/programa.c	2017-03-15 19:41:10.913220002 -0300
 @@ -0,0 +1,119 @@
 +/* Copyright (c) 2017, Eric Pernia.
@@ -222,22 +222,23 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +/*==================[definiciones de funciones externas]=====================*/
 +
 +/*==================[fin del archivo]========================================*/
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/config.mk ./config.mk
---- a_IOCTOC/config.mk	1969-12-31 21:00:00.000000000 -0300
-+++ ./config.mk	2017-03-15 19:17:44.763962166 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/config.mk ./config.mk
+--- a_Pk9wCu/config.mk	1969-12-31 21:00:00.000000000 -0300
++++ ./config.mk	2017-03-15 20:16:24.248553636 -0300
 @@ -0,0 +1,10 @@
-+APP=sAPI_ES
++APP=APP=${{Nombre_Del_Programa string:programa}}
 +
 +MODULES=lpc_chip_43xx lpc_board_ciaa_edu_4337 sapi
 +DEFINES=CORE_M4 __USE_LPCOPEN __USE_NEWLIB
 +
-+VERBOSE=n
-+OPT=g
-+USE_NANO=y
-+SEMIHOST=n
-+USE_FPU=y
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/ciaa_lpc4337.ld ./libs/ciaa_lpc4337.ld
---- a_IOCTOC/libs/ciaa_lpc4337.ld	1969-12-31 21:00:00.000000000 -0300
++VERBOSE=${{Compilacion_Verbosa items:n|y}}
++OPT=${{Nivel_De_Optimizacion items:g|0|1|2|3|s|fast}}
++USE_NANO=${{Cargar_Newlib_NANO items:y|n}}
++SEMIHOST=${{Usar_semihosting items:n|y}}
++USE_FPU=${{Usar_FPU items:y|n}}
+\ No hay ningún carácter de nueva línea al final del archivo
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/ciaa_lpc4337.ld ./libs/ciaa_lpc4337.ld
+--- a_Pk9wCu/libs/ciaa_lpc4337.ld	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/ciaa_lpc4337.ld	2017-03-15 19:17:44.763962166 -0300
 @@ -0,0 +1,287 @@
 +GROUP(
@@ -527,8 +528,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +         + (( DEFINED(UsageFault_Handler) ? UsageFault_Handler : 0 ) + 1) /* UsageFault_Handler may not be defined */
 +         ) );
 +}
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/ciaa-nxp.cfg ./libs/ciaa-nxp.cfg
---- a_IOCTOC/libs/ciaa-nxp.cfg	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/ciaa-nxp.cfg ./libs/ciaa-nxp.cfg
+--- a_Pk9wCu/libs/ciaa-nxp.cfg	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/ciaa-nxp.cfg	2017-03-15 19:17:44.763962166 -0300
 @@ -0,0 +1,161 @@
 +###############################################################################
@@ -692,8 +693,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +   echo "Reset Halt, due to gdb attached...!"
 +   reset halt
 +}
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_board_ciaa_edu_4337/inc/board_api.h ./libs/lpc_board_ciaa_edu_4337/inc/board_api.h
---- a_IOCTOC/libs/lpc_board_ciaa_edu_4337/inc/board_api.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_board_ciaa_edu_4337/inc/board_api.h ./libs/lpc_board_ciaa_edu_4337/inc/board_api.h
+--- a_Pk9wCu/libs/lpc_board_ciaa_edu_4337/inc/board_api.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_board_ciaa_edu_4337/inc/board_api.h	2017-03-15 19:17:44.763962166 -0300
 @@ -0,0 +1,176 @@
 +/*
@@ -872,8 +873,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +#endif
 +
 +#endif /* __BOARD_API_H_ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_board_ciaa_edu_4337/inc/board.h ./libs/lpc_board_ciaa_edu_4337/inc/board.h
---- a_IOCTOC/libs/lpc_board_ciaa_edu_4337/inc/board.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_board_ciaa_edu_4337/inc/board.h ./libs/lpc_board_ciaa_edu_4337/inc/board.h
+--- a_Pk9wCu/libs/lpc_board_ciaa_edu_4337/inc/board.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_board_ciaa_edu_4337/inc/board.h	2017-03-15 19:17:44.763962166 -0300
 @@ -0,0 +1,178 @@
 +/*
@@ -1054,8 +1055,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +#endif
 +
 +#endif /* __BOARD_H_ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_board_ciaa_edu_4337/src/board.c ./libs/lpc_board_ciaa_edu_4337/src/board.c
---- a_IOCTOC/libs/lpc_board_ciaa_edu_4337/src/board.c	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_board_ciaa_edu_4337/src/board.c ./libs/lpc_board_ciaa_edu_4337/src/board.c
+--- a_Pk9wCu/libs/lpc_board_ciaa_edu_4337/src/board.c	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_board_ciaa_edu_4337/src/board.c	2017-03-15 19:17:44.763962166 -0300
 @@ -0,0 +1,201 @@
 +/*
@@ -1259,8 +1260,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +/**
 + * @}
 + */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_board_ciaa_edu_4337/src/board_sysinit.c ./libs/lpc_board_ciaa_edu_4337/src/board_sysinit.c
---- a_IOCTOC/libs/lpc_board_ciaa_edu_4337/src/board_sysinit.c	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_board_ciaa_edu_4337/src/board_sysinit.c ./libs/lpc_board_ciaa_edu_4337/src/board_sysinit.c
+--- a_Pk9wCu/libs/lpc_board_ciaa_edu_4337/src/board_sysinit.c	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_board_ciaa_edu_4337/src/board_sysinit.c	2017-03-15 19:17:44.763962166 -0300
 @@ -0,0 +1,143 @@
 +/*
@@ -1406,15 +1407,15 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +   Board_SetupMuxing();
 +   Board_SetupClocking();
 +}
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_board_ciaa_edu_4337/src/crp.c ./libs/lpc_board_ciaa_edu_4337/src/crp.c
---- a_IOCTOC/libs/lpc_board_ciaa_edu_4337/src/crp.c	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_board_ciaa_edu_4337/src/crp.c ./libs/lpc_board_ciaa_edu_4337/src/crp.c
+--- a_Pk9wCu/libs/lpc_board_ciaa_edu_4337/src/crp.c	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_board_ciaa_edu_4337/src/crp.c	2017-03-15 19:17:44.763962166 -0300
 @@ -0,0 +1,3 @@
 +#define CRP_NO_CRP          0xFFFFFFFF
 +
 +__attribute__ ((used,section(".crp"))) const unsigned int CRP_WORD = CRP_NO_CRP ;
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_board_ciaa_edu_4337/src/cr_startup_lpc43xx.c ./libs/lpc_board_ciaa_edu_4337/src/cr_startup_lpc43xx.c
---- a_IOCTOC/libs/lpc_board_ciaa_edu_4337/src/cr_startup_lpc43xx.c	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_board_ciaa_edu_4337/src/cr_startup_lpc43xx.c ./libs/lpc_board_ciaa_edu_4337/src/cr_startup_lpc43xx.c
+--- a_Pk9wCu/libs/lpc_board_ciaa_edu_4337/src/cr_startup_lpc43xx.c	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_board_ciaa_edu_4337/src/cr_startup_lpc43xx.c	2017-03-15 19:17:44.763962166 -0300
 @@ -0,0 +1,503 @@
 +//*****************************************************************************
@@ -1920,8 +1921,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +    while (1) {
 +    }
 +}
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_board_ciaa_edu_4337/src/sysinit.c ./libs/lpc_board_ciaa_edu_4337/src/sysinit.c
---- a_IOCTOC/libs/lpc_board_ciaa_edu_4337/src/sysinit.c	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_board_ciaa_edu_4337/src/sysinit.c ./libs/lpc_board_ciaa_edu_4337/src/sysinit.c
+--- a_Pk9wCu/libs/lpc_board_ciaa_edu_4337/src/sysinit.c	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_board_ciaa_edu_4337/src/sysinit.c	2017-03-15 19:17:44.763962166 -0300
 @@ -0,0 +1,89 @@
 +/*
@@ -2013,8 +2014,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +
 +#endif /* defined(CORE_M3) || defined(CORE_M4) */
 +}
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_board_ciaa_edu_4337/src/system.c ./libs/lpc_board_ciaa_edu_4337/src/system.c
---- a_IOCTOC/libs/lpc_board_ciaa_edu_4337/src/system.c	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_board_ciaa_edu_4337/src/system.c ./libs/lpc_board_ciaa_edu_4337/src/system.c
+--- a_Pk9wCu/libs/lpc_board_ciaa_edu_4337/src/system.c	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_board_ciaa_edu_4337/src/system.c	2017-03-15 19:17:44.763962166 -0300
 @@ -0,0 +1,190 @@
 +#include <reent.h>
@@ -2207,8 +2208,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +   SET_ERR(ENOSYS);
 +   return -1;
 +}
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/inc/adc_18xx_43xx.h ./libs/lpc_chip_43xx/inc/adc_18xx_43xx.h
---- a_IOCTOC/libs/lpc_chip_43xx/inc/adc_18xx_43xx.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/inc/adc_18xx_43xx.h ./libs/lpc_chip_43xx/inc/adc_18xx_43xx.h
+--- a_Pk9wCu/libs/lpc_chip_43xx/inc/adc_18xx_43xx.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/inc/adc_18xx_43xx.h	2017-03-15 19:17:44.763962166 -0300
 @@ -0,0 +1,268 @@
 +/*
@@ -2479,8 +2480,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +#endif
 +
 +#endif /* __ADC_18XX_43XX_H_ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/inc/aes_18xx_43xx.h ./libs/lpc_chip_43xx/inc/aes_18xx_43xx.h
---- a_IOCTOC/libs/lpc_chip_43xx/inc/aes_18xx_43xx.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/inc/aes_18xx_43xx.h ./libs/lpc_chip_43xx/inc/aes_18xx_43xx.h
+--- a_Pk9wCu/libs/lpc_chip_43xx/inc/aes_18xx_43xx.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/inc/aes_18xx_43xx.h	2017-03-15 19:17:44.767962115 -0300
 @@ -0,0 +1,161 @@
 +/*
@@ -2644,8 +2645,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +#endif
 +
 +#endif /* __AES_18XX_43XX_H_ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/inc/atimer_18xx_43xx.h ./libs/lpc_chip_43xx/inc/atimer_18xx_43xx.h
---- a_IOCTOC/libs/lpc_chip_43xx/inc/atimer_18xx_43xx.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/inc/atimer_18xx_43xx.h ./libs/lpc_chip_43xx/inc/atimer_18xx_43xx.h
+--- a_Pk9wCu/libs/lpc_chip_43xx/inc/atimer_18xx_43xx.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/inc/atimer_18xx_43xx.h	2017-03-15 19:17:44.767962115 -0300
 @@ -0,0 +1,143 @@
 +/*
@@ -2791,8 +2792,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +#endif
 +
 +#endif /* __ATIMER_18XX_43XX_H_ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/inc/ccan_18xx_43xx.h ./libs/lpc_chip_43xx/inc/ccan_18xx_43xx.h
---- a_IOCTOC/libs/lpc_chip_43xx/inc/ccan_18xx_43xx.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/inc/ccan_18xx_43xx.h ./libs/lpc_chip_43xx/inc/ccan_18xx_43xx.h
+--- a_Pk9wCu/libs/lpc_chip_43xx/inc/ccan_18xx_43xx.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/inc/ccan_18xx_43xx.h	2017-03-15 19:17:44.767962115 -0300
 @@ -0,0 +1,505 @@
 +/*
@@ -3300,8 +3301,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +#endif
 +
 +#endif /* __CCAN_18XX_43XX_H_ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/inc/cguccu_18xx_43xx.h ./libs/lpc_chip_43xx/inc/cguccu_18xx_43xx.h
---- a_IOCTOC/libs/lpc_chip_43xx/inc/cguccu_18xx_43xx.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/inc/cguccu_18xx_43xx.h ./libs/lpc_chip_43xx/inc/cguccu_18xx_43xx.h
+--- a_Pk9wCu/libs/lpc_chip_43xx/inc/cguccu_18xx_43xx.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/inc/cguccu_18xx_43xx.h	2017-03-15 19:17:44.767962115 -0300
 @@ -0,0 +1,114 @@
 +/*
@@ -3418,8 +3419,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +#endif
 +
 +#endif /* __CGUCCU_18XX_43XX_H_ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/inc/chip_clocks.h ./libs/lpc_chip_43xx/inc/chip_clocks.h
---- a_IOCTOC/libs/lpc_chip_43xx/inc/chip_clocks.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/inc/chip_clocks.h ./libs/lpc_chip_43xx/inc/chip_clocks.h
+--- a_Pk9wCu/libs/lpc_chip_43xx/inc/chip_clocks.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/inc/chip_clocks.h	2017-03-15 19:17:44.767962115 -0300
 @@ -0,0 +1,252 @@
 +/*
@@ -3674,8 +3675,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +#endif
 +
 +#endif /* __CHIP_CLOCKS_H_ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/inc/chip.h ./libs/lpc_chip_43xx/inc/chip.h
---- a_IOCTOC/libs/lpc_chip_43xx/inc/chip.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/inc/chip.h ./libs/lpc_chip_43xx/inc/chip.h
+--- a_Pk9wCu/libs/lpc_chip_43xx/inc/chip.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/inc/chip.h	2017-03-15 19:17:44.767962115 -0300
 @@ -0,0 +1,163 @@
 +/*
@@ -3841,8 +3842,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +#endif
 +
 +#endif /* __CHIP_H_ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/inc/chip_lpc18xx.h ./libs/lpc_chip_43xx/inc/chip_lpc18xx.h
---- a_IOCTOC/libs/lpc_chip_43xx/inc/chip_lpc18xx.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/inc/chip_lpc18xx.h ./libs/lpc_chip_43xx/inc/chip_lpc18xx.h
+--- a_Pk9wCu/libs/lpc_chip_43xx/inc/chip_lpc18xx.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/inc/chip_lpc18xx.h	2017-03-15 19:17:44.767962115 -0300
 @@ -0,0 +1,210 @@
 +/*
@@ -4055,8 +4056,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +#endif
 +
 +#endif /* __CHIP_LPC18XX_H_ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/inc/chip_lpc43xx.h ./libs/lpc_chip_43xx/inc/chip_lpc43xx.h
---- a_IOCTOC/libs/lpc_chip_43xx/inc/chip_lpc43xx.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/inc/chip_lpc43xx.h ./libs/lpc_chip_43xx/inc/chip_lpc43xx.h
+--- a_Pk9wCu/libs/lpc_chip_43xx/inc/chip_lpc43xx.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/inc/chip_lpc43xx.h	2017-03-15 19:17:44.767962115 -0300
 @@ -0,0 +1,221 @@
 +/*
@@ -4280,8 +4281,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +#endif
 +
 +#endif /* __CHIP_LPC43XX_H_ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/inc/clock_18xx_43xx.h ./libs/lpc_chip_43xx/inc/clock_18xx_43xx.h
---- a_IOCTOC/libs/lpc_chip_43xx/inc/clock_18xx_43xx.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/inc/clock_18xx_43xx.h ./libs/lpc_chip_43xx/inc/clock_18xx_43xx.h
+--- a_Pk9wCu/libs/lpc_chip_43xx/inc/clock_18xx_43xx.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/inc/clock_18xx_43xx.h	2017-03-15 19:17:44.767962115 -0300
 @@ -0,0 +1,394 @@
 +/*
@@ -4678,8 +4679,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +#endif
 +
 +#endif /* __CLOCK_18XX_43XX_H_ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/inc/cmsis_43xx.h ./libs/lpc_chip_43xx/inc/cmsis_43xx.h
---- a_IOCTOC/libs/lpc_chip_43xx/inc/cmsis_43xx.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/inc/cmsis_43xx.h ./libs/lpc_chip_43xx/inc/cmsis_43xx.h
+--- a_Pk9wCu/libs/lpc_chip_43xx/inc/cmsis_43xx.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/inc/cmsis_43xx.h	2017-03-15 19:17:44.771962061 -0300
 @@ -0,0 +1,167 @@
 +/*
@@ -4849,8 +4850,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +#endif
 +
 +#endif /* ifndef __CMSIS_43XX_M0_H_ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/inc/cmsis.h ./libs/lpc_chip_43xx/inc/cmsis.h
---- a_IOCTOC/libs/lpc_chip_43xx/inc/cmsis.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/inc/cmsis.h ./libs/lpc_chip_43xx/inc/cmsis.h
+--- a_Pk9wCu/libs/lpc_chip_43xx/inc/cmsis.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/inc/cmsis.h	2017-03-15 19:17:44.771962061 -0300
 @@ -0,0 +1,63 @@
 +/*
@@ -4916,8 +4917,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +#endif
 +
 +#endif /* __CMSIS_H_ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/inc/core_cm4.h ./libs/lpc_chip_43xx/inc/core_cm4.h
---- a_IOCTOC/libs/lpc_chip_43xx/inc/core_cm4.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/inc/core_cm4.h ./libs/lpc_chip_43xx/inc/core_cm4.h
+--- a_Pk9wCu/libs/lpc_chip_43xx/inc/core_cm4.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/inc/core_cm4.h	2017-03-15 19:17:44.771962061 -0300
 @@ -0,0 +1,1772 @@
 +/**************************************************************************//**
@@ -6692,8 +6693,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +#ifdef __cplusplus
 +}
 +#endif
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/inc/core_cm4_simd.h ./libs/lpc_chip_43xx/inc/core_cm4_simd.h
---- a_IOCTOC/libs/lpc_chip_43xx/inc/core_cm4_simd.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/inc/core_cm4_simd.h ./libs/lpc_chip_43xx/inc/core_cm4_simd.h
+--- a_Pk9wCu/libs/lpc_chip_43xx/inc/core_cm4_simd.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/inc/core_cm4_simd.h	2017-03-15 19:17:44.775962009 -0300
 @@ -0,0 +1,673 @@
 +/**************************************************************************//**
@@ -7369,8 +7370,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +#ifdef __cplusplus
 +}
 +#endif
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/inc/core_cmFunc.h ./libs/lpc_chip_43xx/inc/core_cmFunc.h
---- a_IOCTOC/libs/lpc_chip_43xx/inc/core_cmFunc.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/inc/core_cmFunc.h ./libs/lpc_chip_43xx/inc/core_cmFunc.h
+--- a_Pk9wCu/libs/lpc_chip_43xx/inc/core_cmFunc.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/inc/core_cmFunc.h	2017-03-15 19:17:44.775962009 -0300
 @@ -0,0 +1,636 @@
 +/**************************************************************************//**
@@ -8009,8 +8010,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +
 +
 +#endif /* __CORE_CMFUNC_H */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/inc/core_cmInstr.h ./libs/lpc_chip_43xx/inc/core_cmInstr.h
---- a_IOCTOC/libs/lpc_chip_43xx/inc/core_cmInstr.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/inc/core_cmInstr.h ./libs/lpc_chip_43xx/inc/core_cmInstr.h
+--- a_Pk9wCu/libs/lpc_chip_43xx/inc/core_cmInstr.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/inc/core_cmInstr.h	2017-03-15 19:17:44.775962009 -0300
 @@ -0,0 +1,688 @@
 +/**************************************************************************//**
@@ -8701,8 +8702,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +/*@}*/ /* end of group CMSIS_Core_InstructionInterface */
 +
 +#endif /* __CORE_CMINSTR_H */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/inc/creg_18xx_43xx.h ./libs/lpc_chip_43xx/inc/creg_18xx_43xx.h
---- a_IOCTOC/libs/lpc_chip_43xx/inc/creg_18xx_43xx.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/inc/creg_18xx_43xx.h ./libs/lpc_chip_43xx/inc/creg_18xx_43xx.h
+--- a_Pk9wCu/libs/lpc_chip_43xx/inc/creg_18xx_43xx.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/inc/creg_18xx_43xx.h	2017-03-15 19:17:44.775962009 -0300
 @@ -0,0 +1,238 @@
 +/*
@@ -8943,8 +8944,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +#endif
 +
 +#endif /* __CREG_18XX_43XX_H_ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/inc/dac_18xx_43xx.h ./libs/lpc_chip_43xx/inc/dac_18xx_43xx.h
---- a_IOCTOC/libs/lpc_chip_43xx/inc/dac_18xx_43xx.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/inc/dac_18xx_43xx.h ./libs/lpc_chip_43xx/inc/dac_18xx_43xx.h
+--- a_Pk9wCu/libs/lpc_chip_43xx/inc/dac_18xx_43xx.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/inc/dac_18xx_43xx.h	2017-03-15 19:17:44.775962009 -0300
 @@ -0,0 +1,166 @@
 +/*
@@ -9113,8 +9114,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +#endif
 +
 +#endif /* __DAC_18XX_43XX_H_ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/inc/eeprom_18xx_43xx.h ./libs/lpc_chip_43xx/inc/eeprom_18xx_43xx.h
---- a_IOCTOC/libs/lpc_chip_43xx/inc/eeprom_18xx_43xx.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/inc/eeprom_18xx_43xx.h ./libs/lpc_chip_43xx/inc/eeprom_18xx_43xx.h
+--- a_Pk9wCu/libs/lpc_chip_43xx/inc/eeprom_18xx_43xx.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/inc/eeprom_18xx_43xx.h	2017-03-15 19:17:44.775962009 -0300
 @@ -0,0 +1,275 @@
 +/*
@@ -9392,8 +9393,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +#endif
 +
 +#endif /* _EEPROM_18XX_43XX_H_ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/inc/emc_18xx_43xx.h ./libs/lpc_chip_43xx/inc/emc_18xx_43xx.h
---- a_IOCTOC/libs/lpc_chip_43xx/inc/emc_18xx_43xx.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/inc/emc_18xx_43xx.h ./libs/lpc_chip_43xx/inc/emc_18xx_43xx.h
+--- a_Pk9wCu/libs/lpc_chip_43xx/inc/emc_18xx_43xx.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/inc/emc_18xx_43xx.h	2017-03-15 19:17:44.775962009 -0300
 @@ -0,0 +1,354 @@
 +/*
@@ -9750,8 +9751,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +#endif
 +
 +#endif /* __EMC_18XX_43XX_H_ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/inc/enet_18xx_43xx.h ./libs/lpc_chip_43xx/inc/enet_18xx_43xx.h
---- a_IOCTOC/libs/lpc_chip_43xx/inc/enet_18xx_43xx.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/inc/enet_18xx_43xx.h ./libs/lpc_chip_43xx/inc/enet_18xx_43xx.h
+--- a_Pk9wCu/libs/lpc_chip_43xx/inc/enet_18xx_43xx.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/inc/enet_18xx_43xx.h	2017-03-15 19:17:44.779961957 -0300
 @@ -0,0 +1,680 @@
 +/*
@@ -10434,8 +10435,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +#endif
 +
 +#endif /* __ENET_18XX_43XX_H_ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/inc/error.h ./libs/lpc_chip_43xx/inc/error.h
---- a_IOCTOC/libs/lpc_chip_43xx/inc/error.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/inc/error.h ./libs/lpc_chip_43xx/inc/error.h
+--- a_Pk9wCu/libs/lpc_chip_43xx/inc/error.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/inc/error.h	2017-03-15 19:17:44.779961957 -0300
 @@ -0,0 +1,272 @@
 +/*
@@ -10710,8 +10711,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +   case pred:; }
 +
 +#endif /* __LPC_ERROR_H__ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/inc/evrt_18xx_43xx.h ./libs/lpc_chip_43xx/inc/evrt_18xx_43xx.h
---- a_IOCTOC/libs/lpc_chip_43xx/inc/evrt_18xx_43xx.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/inc/evrt_18xx_43xx.h ./libs/lpc_chip_43xx/inc/evrt_18xx_43xx.h
+--- a_Pk9wCu/libs/lpc_chip_43xx/inc/evrt_18xx_43xx.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/inc/evrt_18xx_43xx.h	2017-03-15 19:17:44.779961957 -0300
 @@ -0,0 +1,171 @@
 +/*
@@ -10885,8 +10886,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +#endif
 +
 +#endif /* __EVRT_18XX_43XX_H_ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/inc/fmc_18xx_43xx.h ./libs/lpc_chip_43xx/inc/fmc_18xx_43xx.h
---- a_IOCTOC/libs/lpc_chip_43xx/inc/fmc_18xx_43xx.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/inc/fmc_18xx_43xx.h ./libs/lpc_chip_43xx/inc/fmc_18xx_43xx.h
+--- a_Pk9wCu/libs/lpc_chip_43xx/inc/fmc_18xx_43xx.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/inc/fmc_18xx_43xx.h	2017-03-15 19:17:44.779961957 -0300
 @@ -0,0 +1,139 @@
 +/*
@@ -11028,8 +11029,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +#endif
 +
 +#endif /* __FMC_18XX_43XX_H_ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/inc/fpu_init.h ./libs/lpc_chip_43xx/inc/fpu_init.h
---- a_IOCTOC/libs/lpc_chip_43xx/inc/fpu_init.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/inc/fpu_init.h ./libs/lpc_chip_43xx/inc/fpu_init.h
+--- a_Pk9wCu/libs/lpc_chip_43xx/inc/fpu_init.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/inc/fpu_init.h	2017-03-15 19:17:44.779961957 -0300
 @@ -0,0 +1,52 @@
 +/*
@@ -11084,8 +11085,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 + */
 +
 +#endif /* __FPU_INIT_H_ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/inc/gima_18xx_43xx.h ./libs/lpc_chip_43xx/inc/gima_18xx_43xx.h
---- a_IOCTOC/libs/lpc_chip_43xx/inc/gima_18xx_43xx.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/inc/gima_18xx_43xx.h ./libs/lpc_chip_43xx/inc/gima_18xx_43xx.h
+--- a_Pk9wCu/libs/lpc_chip_43xx/inc/gima_18xx_43xx.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/inc/gima_18xx_43xx.h	2017-03-15 19:17:44.779961957 -0300
 @@ -0,0 +1,66 @@
 +/*
@@ -11154,8 +11155,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +#endif
 +
 +#endif /* __GIMA_18XX_43XX_H_ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/inc/gpdma_18xx_43xx.h ./libs/lpc_chip_43xx/inc/gpdma_18xx_43xx.h
---- a_IOCTOC/libs/lpc_chip_43xx/inc/gpdma_18xx_43xx.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/inc/gpdma_18xx_43xx.h ./libs/lpc_chip_43xx/inc/gpdma_18xx_43xx.h
+--- a_Pk9wCu/libs/lpc_chip_43xx/inc/gpdma_18xx_43xx.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/inc/gpdma_18xx_43xx.h	2017-03-15 19:17:44.779961957 -0300
 @@ -0,0 +1,418 @@
 +/*
@@ -11576,8 +11577,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +#endif
 +
 +#endif /* __GPDMA_18XX_43XX_H_ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/inc/gpio_18xx_43xx.h ./libs/lpc_chip_43xx/inc/gpio_18xx_43xx.h
---- a_IOCTOC/libs/lpc_chip_43xx/inc/gpio_18xx_43xx.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/inc/gpio_18xx_43xx.h ./libs/lpc_chip_43xx/inc/gpio_18xx_43xx.h
+--- a_Pk9wCu/libs/lpc_chip_43xx/inc/gpio_18xx_43xx.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/inc/gpio_18xx_43xx.h	2017-03-15 19:17:44.779961957 -0300
 @@ -0,0 +1,471 @@
 +/*
@@ -12051,8 +12052,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +#endif
 +
 +#endif /* __GPIO_18XX_43XX_H_ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/inc/gpiogroup_18xx_43xx.h ./libs/lpc_chip_43xx/inc/gpiogroup_18xx_43xx.h
---- a_IOCTOC/libs/lpc_chip_43xx/inc/gpiogroup_18xx_43xx.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/inc/gpiogroup_18xx_43xx.h ./libs/lpc_chip_43xx/inc/gpiogroup_18xx_43xx.h
+--- a_Pk9wCu/libs/lpc_chip_43xx/inc/gpiogroup_18xx_43xx.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/inc/gpiogroup_18xx_43xx.h	2017-03-15 19:17:44.779961957 -0300
 @@ -0,0 +1,205 @@
 +/*
@@ -12260,8 +12261,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +#endif
 +
 +#endif /* __GPIOGROUP_18XX_43XX_H_ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/inc/hsadc_18xx_43xx.h ./libs/lpc_chip_43xx/inc/hsadc_18xx_43xx.h
---- a_IOCTOC/libs/lpc_chip_43xx/inc/hsadc_18xx_43xx.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/inc/hsadc_18xx_43xx.h ./libs/lpc_chip_43xx/inc/hsadc_18xx_43xx.h
+--- a_Pk9wCu/libs/lpc_chip_43xx/inc/hsadc_18xx_43xx.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/inc/hsadc_18xx_43xx.h	2017-03-15 19:17:44.783961904 -0300
 @@ -0,0 +1,575 @@
 +/*
@@ -12839,8 +12840,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +#endif
 +
 +#endif /* __HSADC_18XX_43XX_H_ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/inc/i2c_18xx_43xx.h ./libs/lpc_chip_43xx/inc/i2c_18xx_43xx.h
---- a_IOCTOC/libs/lpc_chip_43xx/inc/i2c_18xx_43xx.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/inc/i2c_18xx_43xx.h ./libs/lpc_chip_43xx/inc/i2c_18xx_43xx.h
+--- a_Pk9wCu/libs/lpc_chip_43xx/inc/i2c_18xx_43xx.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/inc/i2c_18xx_43xx.h	2017-03-15 19:17:44.783961904 -0300
 @@ -0,0 +1,400 @@
 +/*
@@ -13243,8 +13244,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +#endif
 +
 +#endif /* __I2C_18XX_43XX_H_ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/inc/i2c_common_18xx_43xx.h ./libs/lpc_chip_43xx/inc/i2c_common_18xx_43xx.h
---- a_IOCTOC/libs/lpc_chip_43xx/inc/i2c_common_18xx_43xx.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/inc/i2c_common_18xx_43xx.h ./libs/lpc_chip_43xx/inc/i2c_common_18xx_43xx.h
+--- a_Pk9wCu/libs/lpc_chip_43xx/inc/i2c_common_18xx_43xx.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/inc/i2c_common_18xx_43xx.h	2017-03-15 19:17:44.783961904 -0300
 @@ -0,0 +1,200 @@
 +/*
@@ -13447,8 +13448,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +#endif
 +
 +#endif /* __I2C_COMMON_18XX_43XX_H_ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/inc/i2cm_18xx_43xx.h ./libs/lpc_chip_43xx/inc/i2cm_18xx_43xx.h
---- a_IOCTOC/libs/lpc_chip_43xx/inc/i2cm_18xx_43xx.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/inc/i2cm_18xx_43xx.h ./libs/lpc_chip_43xx/inc/i2cm_18xx_43xx.h
+--- a_Pk9wCu/libs/lpc_chip_43xx/inc/i2cm_18xx_43xx.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/inc/i2cm_18xx_43xx.h	2017-03-15 19:17:44.783961904 -0300
 @@ -0,0 +1,419 @@
 +/*
@@ -13870,8 +13871,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +#endif
 +
 +#endif /* __I2C_18XX_43XX_H_ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/inc/i2s_18xx_43xx.h ./libs/lpc_chip_43xx/inc/i2s_18xx_43xx.h
---- a_IOCTOC/libs/lpc_chip_43xx/inc/i2s_18xx_43xx.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/inc/i2s_18xx_43xx.h ./libs/lpc_chip_43xx/inc/i2s_18xx_43xx.h
+--- a_Pk9wCu/libs/lpc_chip_43xx/inc/i2s_18xx_43xx.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/inc/i2s_18xx_43xx.h	2017-03-15 19:17:44.783961904 -0300
 @@ -0,0 +1,560 @@
 +/*
@@ -14434,8 +14435,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +#endif
 +
 +#endif /* __I2S_18XX_43XX_H_ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/inc/iap_18xx_43xx.h ./libs/lpc_chip_43xx/inc/iap_18xx_43xx.h
---- a_IOCTOC/libs/lpc_chip_43xx/inc/iap_18xx_43xx.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/inc/iap_18xx_43xx.h ./libs/lpc_chip_43xx/inc/iap_18xx_43xx.h
+--- a_Pk9wCu/libs/lpc_chip_43xx/inc/iap_18xx_43xx.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/inc/iap_18xx_43xx.h	2017-03-15 19:17:44.783961904 -0300
 @@ -0,0 +1,197 @@
 +/*
@@ -14635,8 +14636,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +#endif
 +
 +#endif /* __IAP_H_ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/inc/iap.h ./libs/lpc_chip_43xx/inc/iap.h
---- a_IOCTOC/libs/lpc_chip_43xx/inc/iap.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/inc/iap.h ./libs/lpc_chip_43xx/inc/iap.h
+--- a_Pk9wCu/libs/lpc_chip_43xx/inc/iap.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/inc/iap.h	2017-03-15 19:17:44.783961904 -0300
 @@ -0,0 +1,184 @@
 +/*
@@ -14823,8 +14824,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +#endif
 +
 +#endif /* __IAP_H_ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/inc/lcd_18xx_43xx.h ./libs/lpc_chip_43xx/inc/lcd_18xx_43xx.h
---- a_IOCTOC/libs/lpc_chip_43xx/inc/lcd_18xx_43xx.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/inc/lcd_18xx_43xx.h ./libs/lpc_chip_43xx/inc/lcd_18xx_43xx.h
+--- a_Pk9wCu/libs/lpc_chip_43xx/inc/lcd_18xx_43xx.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/inc/lcd_18xx_43xx.h	2017-03-15 19:17:44.783961904 -0300
 @@ -0,0 +1,383 @@
 +/*
@@ -15210,8 +15211,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 + */
 +
 +#endif /* __LCD_18XX_43XX_H_ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/inc/lpc_types.h ./libs/lpc_chip_43xx/inc/lpc_types.h
---- a_IOCTOC/libs/lpc_chip_43xx/inc/lpc_types.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/inc/lpc_types.h ./libs/lpc_chip_43xx/inc/lpc_types.h
+--- a_Pk9wCu/libs/lpc_chip_43xx/inc/lpc_types.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/inc/lpc_types.h	2017-03-15 19:17:44.783961904 -0300
 @@ -0,0 +1,216 @@
 +/*
@@ -15430,8 +15431,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 + */
 +
 +#endif /* __LPC_TYPES_H_ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/inc/mcpwm_18xx_43xx.h ./libs/lpc_chip_43xx/inc/mcpwm_18xx_43xx.h
---- a_IOCTOC/libs/lpc_chip_43xx/inc/mcpwm_18xx_43xx.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/inc/mcpwm_18xx_43xx.h ./libs/lpc_chip_43xx/inc/mcpwm_18xx_43xx.h
+--- a_Pk9wCu/libs/lpc_chip_43xx/inc/mcpwm_18xx_43xx.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/inc/mcpwm_18xx_43xx.h	2017-03-15 19:17:44.787961852 -0300
 @@ -0,0 +1,80 @@
 +/*
@@ -15514,8 +15515,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +#endif
 +
 +#endif /* __MCPWM_18XX_43XX_H_ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/inc/otp_18xx_43xx.h ./libs/lpc_chip_43xx/inc/otp_18xx_43xx.h
---- a_IOCTOC/libs/lpc_chip_43xx/inc/otp_18xx_43xx.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/inc/otp_18xx_43xx.h ./libs/lpc_chip_43xx/inc/otp_18xx_43xx.h
+--- a_Pk9wCu/libs/lpc_chip_43xx/inc/otp_18xx_43xx.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/inc/otp_18xx_43xx.h	2017-03-15 19:17:44.787961852 -0300
 @@ -0,0 +1,144 @@
 +/*
@@ -15662,8 +15663,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +#endif
 +
 +#endif /* __OTP_18XX_43XX_H_ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/inc/pinint_18xx_43xx.h ./libs/lpc_chip_43xx/inc/pinint_18xx_43xx.h
---- a_IOCTOC/libs/lpc_chip_43xx/inc/pinint_18xx_43xx.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/inc/pinint_18xx_43xx.h ./libs/lpc_chip_43xx/inc/pinint_18xx_43xx.h
+--- a_Pk9wCu/libs/lpc_chip_43xx/inc/pinint_18xx_43xx.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/inc/pinint_18xx_43xx.h	2017-03-15 19:17:44.787961852 -0300
 @@ -0,0 +1,252 @@
 +/*
@@ -15918,8 +15919,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +#endif
 +
 +#endif /* __PININT_18XX_43XX_H_ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/inc/pmc_18xx_43xx.h ./libs/lpc_chip_43xx/inc/pmc_18xx_43xx.h
---- a_IOCTOC/libs/lpc_chip_43xx/inc/pmc_18xx_43xx.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/inc/pmc_18xx_43xx.h ./libs/lpc_chip_43xx/inc/pmc_18xx_43xx.h
+--- a_Pk9wCu/libs/lpc_chip_43xx/inc/pmc_18xx_43xx.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/inc/pmc_18xx_43xx.h	2017-03-15 19:17:44.787961852 -0300
 @@ -0,0 +1,99 @@
 +/*
@@ -16021,8 +16022,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +#endif
 +
 +#endif /* __PMC_18XX_43XX_H_ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/inc/qei_18xx_43xx.h ./libs/lpc_chip_43xx/inc/qei_18xx_43xx.h
---- a_IOCTOC/libs/lpc_chip_43xx/inc/qei_18xx_43xx.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/inc/qei_18xx_43xx.h ./libs/lpc_chip_43xx/inc/qei_18xx_43xx.h
+--- a_Pk9wCu/libs/lpc_chip_43xx/inc/qei_18xx_43xx.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/inc/qei_18xx_43xx.h	2017-03-15 19:17:44.787961852 -0300
 @@ -0,0 +1,86 @@
 +/*
@@ -16111,8 +16112,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +#endif
 +
 +#endif /* __QEI_18XX_43XX_H_ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/inc/rgu_18xx_43xx.h ./libs/lpc_chip_43xx/inc/rgu_18xx_43xx.h
---- a_IOCTOC/libs/lpc_chip_43xx/inc/rgu_18xx_43xx.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/inc/rgu_18xx_43xx.h ./libs/lpc_chip_43xx/inc/rgu_18xx_43xx.h
+--- a_Pk9wCu/libs/lpc_chip_43xx/inc/rgu_18xx_43xx.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/inc/rgu_18xx_43xx.h	2017-03-15 19:17:44.787961852 -0300
 @@ -0,0 +1,158 @@
 +/*
@@ -16273,8 +16274,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +#endif
 +
 +#endif /* __RGU_18XX_43XX_H_ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/inc/ring_buffer.h ./libs/lpc_chip_43xx/inc/ring_buffer.h
---- a_IOCTOC/libs/lpc_chip_43xx/inc/ring_buffer.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/inc/ring_buffer.h ./libs/lpc_chip_43xx/inc/ring_buffer.h
+--- a_Pk9wCu/libs/lpc_chip_43xx/inc/ring_buffer.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/inc/ring_buffer.h	2017-03-15 19:17:44.787961852 -0300
 @@ -0,0 +1,188 @@
 +/*
@@ -16465,8 +16466,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 + */
 +
 +#endif /* __RING_BUFFER_H_ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/inc/ritimer_18xx_43xx.h ./libs/lpc_chip_43xx/inc/ritimer_18xx_43xx.h
---- a_IOCTOC/libs/lpc_chip_43xx/inc/ritimer_18xx_43xx.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/inc/ritimer_18xx_43xx.h ./libs/lpc_chip_43xx/inc/ritimer_18xx_43xx.h
+--- a_Pk9wCu/libs/lpc_chip_43xx/inc/ritimer_18xx_43xx.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/inc/ritimer_18xx_43xx.h	2017-03-15 19:17:44.787961852 -0300
 @@ -0,0 +1,189 @@
 +/*
@@ -16658,8 +16659,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +#endif
 +
 +#endif /* __RITIMER_18XX_43XX_H_ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/inc/romapi_18xx_43xx.h ./libs/lpc_chip_43xx/inc/romapi_18xx_43xx.h
---- a_IOCTOC/libs/lpc_chip_43xx/inc/romapi_18xx_43xx.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/inc/romapi_18xx_43xx.h ./libs/lpc_chip_43xx/inc/romapi_18xx_43xx.h
+--- a_Pk9wCu/libs/lpc_chip_43xx/inc/romapi_18xx_43xx.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/inc/romapi_18xx_43xx.h	2017-03-15 19:17:44.787961852 -0300
 @@ -0,0 +1,128 @@
 +/*
@@ -16790,8 +16791,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +#endif
 +
 +#endif /* __ROMAPI_18XX_43XX_H_ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/inc/rtc_18xx_43xx.h ./libs/lpc_chip_43xx/inc/rtc_18xx_43xx.h
---- a_IOCTOC/libs/lpc_chip_43xx/inc/rtc_18xx_43xx.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/inc/rtc_18xx_43xx.h ./libs/lpc_chip_43xx/inc/rtc_18xx_43xx.h
+--- a_Pk9wCu/libs/lpc_chip_43xx/inc/rtc_18xx_43xx.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/inc/rtc_18xx_43xx.h	2017-03-15 19:17:44.787961852 -0300
 @@ -0,0 +1,638 @@
 +/*
@@ -17432,8 +17433,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +#endif
 +
 +#endif /* __RTC_18XX_43XX_H_ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/inc/sct_18xx_43xx.h ./libs/lpc_chip_43xx/inc/sct_18xx_43xx.h
---- a_IOCTOC/libs/lpc_chip_43xx/inc/sct_18xx_43xx.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/inc/sct_18xx_43xx.h ./libs/lpc_chip_43xx/inc/sct_18xx_43xx.h
+--- a_Pk9wCu/libs/lpc_chip_43xx/inc/sct_18xx_43xx.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/inc/sct_18xx_43xx.h	2017-03-15 19:17:44.787961852 -0300
 @@ -0,0 +1,423 @@
 +/*
@@ -17859,8 +17860,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +#endif
 +
 +#endif /* __SCT_18XX_43XX_H_ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/inc/sct_pwm_18xx_43xx.h ./libs/lpc_chip_43xx/inc/sct_pwm_18xx_43xx.h
---- a_IOCTOC/libs/lpc_chip_43xx/inc/sct_pwm_18xx_43xx.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/inc/sct_pwm_18xx_43xx.h ./libs/lpc_chip_43xx/inc/sct_pwm_18xx_43xx.h
+--- a_Pk9wCu/libs/lpc_chip_43xx/inc/sct_pwm_18xx_43xx.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/inc/sct_pwm_18xx_43xx.h	2017-03-15 19:17:44.787961852 -0300
 @@ -0,0 +1,178 @@
 +/*
@@ -18041,8 +18042,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +#endif
 +
 +#endif /* __SCT_PWM_18XX_43XX_H_ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/inc/scu_18xx_43xx.h ./libs/lpc_chip_43xx/inc/scu_18xx_43xx.h
---- a_IOCTOC/libs/lpc_chip_43xx/inc/scu_18xx_43xx.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/inc/scu_18xx_43xx.h ./libs/lpc_chip_43xx/inc/scu_18xx_43xx.h
+--- a_Pk9wCu/libs/lpc_chip_43xx/inc/scu_18xx_43xx.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/inc/scu_18xx_43xx.h	2017-03-15 19:17:44.791961799 -0300
 @@ -0,0 +1,247 @@
 +/*
@@ -18292,8 +18293,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +#endif
 +
 +#endif /* __SCU_18XX_43XX_H_ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/inc/sdif_18xx_43xx.h ./libs/lpc_chip_43xx/inc/sdif_18xx_43xx.h
---- a_IOCTOC/libs/lpc_chip_43xx/inc/sdif_18xx_43xx.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/inc/sdif_18xx_43xx.h ./libs/lpc_chip_43xx/inc/sdif_18xx_43xx.h
+--- a_Pk9wCu/libs/lpc_chip_43xx/inc/sdif_18xx_43xx.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/inc/sdif_18xx_43xx.h	2017-03-15 19:17:44.791961799 -0300
 @@ -0,0 +1,479 @@
 +/*
@@ -18775,8 +18776,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +#endif
 +
 +#endif /* __SDIF_18XX_43XX_H_ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/inc/sdio_18xx_43xx.h ./libs/lpc_chip_43xx/inc/sdio_18xx_43xx.h
---- a_IOCTOC/libs/lpc_chip_43xx/inc/sdio_18xx_43xx.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/inc/sdio_18xx_43xx.h ./libs/lpc_chip_43xx/inc/sdio_18xx_43xx.h
+--- a_Pk9wCu/libs/lpc_chip_43xx/inc/sdio_18xx_43xx.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/inc/sdio_18xx_43xx.h	2017-03-15 19:17:44.791961799 -0300
 @@ -0,0 +1,278 @@
 +/*
@@ -19057,8 +19058,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +#endif
 +
 +#endif /* __SDIO_18XX_43XX_H_ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/inc/sdmmc_18xx_43xx.h ./libs/lpc_chip_43xx/inc/sdmmc_18xx_43xx.h
---- a_IOCTOC/libs/lpc_chip_43xx/inc/sdmmc_18xx_43xx.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/inc/sdmmc_18xx_43xx.h ./libs/lpc_chip_43xx/inc/sdmmc_18xx_43xx.h
+--- a_Pk9wCu/libs/lpc_chip_43xx/inc/sdmmc_18xx_43xx.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/inc/sdmmc_18xx_43xx.h	2017-03-15 19:17:44.791961799 -0300
 @@ -0,0 +1,151 @@
 +/*
@@ -19212,8 +19213,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +#endif
 +
 +#endif /* __SDMMC_18XX_43XX_H_ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/inc/sdmmc.h ./libs/lpc_chip_43xx/inc/sdmmc.h
---- a_IOCTOC/libs/lpc_chip_43xx/inc/sdmmc.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/inc/sdmmc.h ./libs/lpc_chip_43xx/inc/sdmmc.h
+--- a_Pk9wCu/libs/lpc_chip_43xx/inc/sdmmc.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/inc/sdmmc.h	2017-03-15 19:17:44.791961799 -0300
 @@ -0,0 +1,450 @@
 +/*
@@ -19666,8 +19667,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 + */
 +
 +#endif /* __SDMMC_H */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/inc/sgpio_18xx_43xx.h ./libs/lpc_chip_43xx/inc/sgpio_18xx_43xx.h
---- a_IOCTOC/libs/lpc_chip_43xx/inc/sgpio_18xx_43xx.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/inc/sgpio_18xx_43xx.h ./libs/lpc_chip_43xx/inc/sgpio_18xx_43xx.h
+--- a_Pk9wCu/libs/lpc_chip_43xx/inc/sgpio_18xx_43xx.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/inc/sgpio_18xx_43xx.h	2017-03-15 19:17:44.791961799 -0300
 @@ -0,0 +1,108 @@
 +/*
@@ -19778,8 +19779,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +#endif
 +
 +#endif /* __SGPIO_43XX_H_ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/inc/spi_18xx_43xx.h ./libs/lpc_chip_43xx/inc/spi_18xx_43xx.h
---- a_IOCTOC/libs/lpc_chip_43xx/inc/spi_18xx_43xx.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/inc/spi_18xx_43xx.h ./libs/lpc_chip_43xx/inc/spi_18xx_43xx.h
+--- a_Pk9wCu/libs/lpc_chip_43xx/inc/spi_18xx_43xx.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/inc/spi_18xx_43xx.h	2017-03-15 19:17:44.791961799 -0300
 @@ -0,0 +1,416 @@
 +/*
@@ -20198,8 +20199,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +#endif
 +
 +#endif /* __SPI_43XX_H_ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/inc/ssp_18xx_43xx.h ./libs/lpc_chip_43xx/inc/ssp_18xx_43xx.h
---- a_IOCTOC/libs/lpc_chip_43xx/inc/ssp_18xx_43xx.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/inc/ssp_18xx_43xx.h ./libs/lpc_chip_43xx/inc/ssp_18xx_43xx.h
+--- a_Pk9wCu/libs/lpc_chip_43xx/inc/ssp_18xx_43xx.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/inc/ssp_18xx_43xx.h	2017-03-15 19:17:44.795961747 -0300
 @@ -0,0 +1,598 @@
 +/*
@@ -20800,8 +20801,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +#endif
 +
 +#endif /* __SSP_18XX_43XX_H_ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/inc/stopwatch.h ./libs/lpc_chip_43xx/inc/stopwatch.h
---- a_IOCTOC/libs/lpc_chip_43xx/inc/stopwatch.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/inc/stopwatch.h ./libs/lpc_chip_43xx/inc/stopwatch.h
+--- a_Pk9wCu/libs/lpc_chip_43xx/inc/stopwatch.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/inc/stopwatch.h	2017-03-15 19:17:44.795961747 -0300
 @@ -0,0 +1,137 @@
 +/*
@@ -20941,8 +20942,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 + */
 +
 +#endif /* __STOPWATCH_H_ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/inc/sys_config.h ./libs/lpc_chip_43xx/inc/sys_config.h
---- a_IOCTOC/libs/lpc_chip_43xx/inc/sys_config.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/inc/sys_config.h ./libs/lpc_chip_43xx/inc/sys_config.h
+--- a_Pk9wCu/libs/lpc_chip_43xx/inc/sys_config.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/inc/sys_config.h	2017-03-15 19:17:44.795961747 -0300
 @@ -0,0 +1,36 @@
 +/*
@@ -20981,8 +20982,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +#define CHIP_LPC43XX
 +
 +#endif /* __SYS_CONFIG_H_ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/inc/timer_18xx_43xx.h ./libs/lpc_chip_43xx/inc/timer_18xx_43xx.h
---- a_IOCTOC/libs/lpc_chip_43xx/inc/timer_18xx_43xx.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/inc/timer_18xx_43xx.h ./libs/lpc_chip_43xx/inc/timer_18xx_43xx.h
+--- a_Pk9wCu/libs/lpc_chip_43xx/inc/timer_18xx_43xx.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/inc/timer_18xx_43xx.h	2017-03-15 19:17:44.795961747 -0300
 @@ -0,0 +1,445 @@
 +/*
@@ -21430,8 +21431,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +#endif
 +
 +#endif /* __TIMER_18XX_43XX_H_ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/inc/uart_18xx_43xx.h ./libs/lpc_chip_43xx/inc/uart_18xx_43xx.h
---- a_IOCTOC/libs/lpc_chip_43xx/inc/uart_18xx_43xx.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/inc/uart_18xx_43xx.h ./libs/lpc_chip_43xx/inc/uart_18xx_43xx.h
+--- a_Pk9wCu/libs/lpc_chip_43xx/inc/uart_18xx_43xx.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/inc/uart_18xx_43xx.h	2017-03-15 19:17:44.795961747 -0300
 @@ -0,0 +1,826 @@
 +/*
@@ -22260,8 +22261,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +#endif
 +
 +#endif /* __UART_18XX_43XX_H_ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/inc/usbd/usbd_adc.h ./libs/lpc_chip_43xx/inc/usbd/usbd_adc.h
---- a_IOCTOC/libs/lpc_chip_43xx/inc/usbd/usbd_adc.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/inc/usbd/usbd_adc.h ./libs/lpc_chip_43xx/inc/usbd/usbd_adc.h
+--- a_Pk9wCu/libs/lpc_chip_43xx/inc/usbd/usbd_adc.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/inc/usbd/usbd_adc.h	2017-03-15 19:17:44.795961747 -0300
 @@ -0,0 +1,377 @@
 +/***********************************************************************
@@ -22641,8 +22642,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +
 +
 +#endif  /* __AUDIO_H__ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/inc/usbd/usbd_cdc.h ./libs/lpc_chip_43xx/inc/usbd/usbd_cdc.h
---- a_IOCTOC/libs/lpc_chip_43xx/inc/usbd/usbd_cdc.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/inc/usbd/usbd_cdc.h ./libs/lpc_chip_43xx/inc/usbd/usbd_cdc.h
+--- a_Pk9wCu/libs/lpc_chip_43xx/inc/usbd/usbd_cdc.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/inc/usbd/usbd_cdc.h	2017-03-15 19:17:44.795961747 -0300
 @@ -0,0 +1,249 @@
 +/***********************************************************************
@@ -22894,8 +22895,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +
 +#endif /* __CDC_H */
 +
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/inc/usbd/usbd_cdcuser.h ./libs/lpc_chip_43xx/inc/usbd/usbd_cdcuser.h
---- a_IOCTOC/libs/lpc_chip_43xx/inc/usbd/usbd_cdcuser.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/inc/usbd/usbd_cdcuser.h ./libs/lpc_chip_43xx/inc/usbd/usbd_cdcuser.h
+--- a_Pk9wCu/libs/lpc_chip_43xx/inc/usbd/usbd_cdcuser.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/inc/usbd/usbd_cdcuser.h	2017-03-15 19:17:44.795961747 -0300
 @@ -0,0 +1,529 @@
 +/***********************************************************************
@@ -23427,8 +23428,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +
 +
 +#endif  /* __CDCUSER_H__ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/inc/usbd/usbd_core.h ./libs/lpc_chip_43xx/inc/usbd/usbd_core.h
---- a_IOCTOC/libs/lpc_chip_43xx/inc/usbd/usbd_core.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/inc/usbd/usbd_core.h ./libs/lpc_chip_43xx/inc/usbd/usbd_core.h
+--- a_Pk9wCu/libs/lpc_chip_43xx/inc/usbd/usbd_core.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/inc/usbd/usbd_core.h	2017-03-15 19:17:44.799961695 -0300
 @@ -0,0 +1,585 @@
 +/***********************************************************************
@@ -24016,8 +24017,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +/** @endcond */
 +
 +#endif  /* __MW_USBD_CORE_H__ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/inc/usbd/usbd_desc.h ./libs/lpc_chip_43xx/inc/usbd/usbd_desc.h
---- a_IOCTOC/libs/lpc_chip_43xx/inc/usbd/usbd_desc.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/inc/usbd/usbd_desc.h ./libs/lpc_chip_43xx/inc/usbd/usbd_desc.h
+--- a_Pk9wCu/libs/lpc_chip_43xx/inc/usbd/usbd_desc.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/inc/usbd/usbd_desc.h	2017-03-15 19:17:44.799961695 -0300
 @@ -0,0 +1,48 @@
 +/***********************************************************************
@@ -24068,8 +24069,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +
 +
 +#endif  /* __USBDESC_H__ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/inc/usbd/usbd_dfu.h ./libs/lpc_chip_43xx/inc/usbd/usbd_dfu.h
---- a_IOCTOC/libs/lpc_chip_43xx/inc/usbd/usbd_dfu.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/inc/usbd/usbd_dfu.h ./libs/lpc_chip_43xx/inc/usbd/usbd_dfu.h
+--- a_Pk9wCu/libs/lpc_chip_43xx/inc/usbd/usbd_dfu.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/inc/usbd/usbd_dfu.h	2017-03-15 19:17:44.799961695 -0300
 @@ -0,0 +1,120 @@
 +/***********************************************************************
@@ -24192,8 +24193,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +
 +
 +#endif  /* __MW_USBD_DFU_H__ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/inc/usbd/usbd_dfuuser.h ./libs/lpc_chip_43xx/inc/usbd/usbd_dfuuser.h
---- a_IOCTOC/libs/lpc_chip_43xx/inc/usbd/usbd_dfuuser.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/inc/usbd/usbd_dfuuser.h ./libs/lpc_chip_43xx/inc/usbd/usbd_dfuuser.h
+--- a_Pk9wCu/libs/lpc_chip_43xx/inc/usbd/usbd_dfuuser.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/inc/usbd/usbd_dfuuser.h	2017-03-15 19:17:44.799961695 -0300
 @@ -0,0 +1,270 @@
 +/***********************************************************************
@@ -24466,8 +24467,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +/** @endcond */
 +
 +#endif  /* __DFUUSER_H__ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/inc/usbd/usbd.h ./libs/lpc_chip_43xx/inc/usbd/usbd.h
---- a_IOCTOC/libs/lpc_chip_43xx/inc/usbd/usbd.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/inc/usbd/usbd.h ./libs/lpc_chip_43xx/inc/usbd/usbd.h
+--- a_Pk9wCu/libs/lpc_chip_43xx/inc/usbd/usbd.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/inc/usbd/usbd.h	2017-03-15 19:17:44.799961695 -0300
 @@ -0,0 +1,705 @@
 +/***********************************************************************
@@ -25175,8 +25176,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +/** @}*/
 +
 +#endif  /* __USBD_H__ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/inc/usbd/usbd_hid.h ./libs/lpc_chip_43xx/inc/usbd/usbd_hid.h
---- a_IOCTOC/libs/lpc_chip_43xx/inc/usbd/usbd_hid.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/inc/usbd/usbd_hid.h ./libs/lpc_chip_43xx/inc/usbd/usbd_hid.h
+--- a_Pk9wCu/libs/lpc_chip_43xx/inc/usbd/usbd_hid.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/inc/usbd/usbd_hid.h	2017-03-15 19:17:44.799961695 -0300
 @@ -0,0 +1,431 @@
 +/***********************************************************************
@@ -25610,8 +25611,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +/** @} */
 +
 +#endif  /* __HID_H__ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/inc/usbd/usbd_hiduser.h ./libs/lpc_chip_43xx/inc/usbd/usbd_hiduser.h
---- a_IOCTOC/libs/lpc_chip_43xx/inc/usbd/usbd_hiduser.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/inc/usbd/usbd_hiduser.h ./libs/lpc_chip_43xx/inc/usbd/usbd_hiduser.h
+--- a_Pk9wCu/libs/lpc_chip_43xx/inc/usbd/usbd_hiduser.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/inc/usbd/usbd_hiduser.h	2017-03-15 19:17:44.799961695 -0300
 @@ -0,0 +1,421 @@
 +/***********************************************************************
@@ -26035,8 +26036,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +/** @endcond */
 +
 +#endif  /* __HIDUSER_H__ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/inc/usbd/usbd_hw.h ./libs/lpc_chip_43xx/inc/usbd/usbd_hw.h
---- a_IOCTOC/libs/lpc_chip_43xx/inc/usbd/usbd_hw.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/inc/usbd/usbd_hw.h ./libs/lpc_chip_43xx/inc/usbd/usbd_hw.h
+--- a_Pk9wCu/libs/lpc_chip_43xx/inc/usbd/usbd_hw.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/inc/usbd/usbd_hw.h	2017-03-15 19:17:44.803961642 -0300
 @@ -0,0 +1,457 @@
 +/***********************************************************************
@@ -26496,8 +26497,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +
 +
 +#endif  /* __USBHW_H__ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/inc/usbd/usbd_msc.h ./libs/lpc_chip_43xx/inc/usbd/usbd_msc.h
---- a_IOCTOC/libs/lpc_chip_43xx/inc/usbd/usbd_msc.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/inc/usbd/usbd_msc.h ./libs/lpc_chip_43xx/inc/usbd/usbd_msc.h
+--- a_Pk9wCu/libs/lpc_chip_43xx/inc/usbd/usbd_msc.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/inc/usbd/usbd_msc.h	2017-03-15 19:17:44.803961642 -0300
 @@ -0,0 +1,119 @@
 +/***********************************************************************
@@ -26619,8 +26620,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +
 +
 +#endif  /* __MSC_H__ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/inc/usbd/usbd_mscuser.h ./libs/lpc_chip_43xx/inc/usbd/usbd_mscuser.h
---- a_IOCTOC/libs/lpc_chip_43xx/inc/usbd/usbd_mscuser.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/inc/usbd/usbd_mscuser.h ./libs/lpc_chip_43xx/inc/usbd/usbd_mscuser.h
+--- a_Pk9wCu/libs/lpc_chip_43xx/inc/usbd/usbd_mscuser.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/inc/usbd/usbd_mscuser.h	2017-03-15 19:17:44.803961642 -0300
 @@ -0,0 +1,270 @@
 +/***********************************************************************
@@ -26893,8 +26894,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +
 +
 +#endif  /* __MSCUSER_H__ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/inc/usbd/usbd_rom_api.h ./libs/lpc_chip_43xx/inc/usbd/usbd_rom_api.h
---- a_IOCTOC/libs/lpc_chip_43xx/inc/usbd/usbd_rom_api.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/inc/usbd/usbd_rom_api.h ./libs/lpc_chip_43xx/inc/usbd/usbd_rom_api.h
+--- a_Pk9wCu/libs/lpc_chip_43xx/inc/usbd/usbd_rom_api.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/inc/usbd/usbd_rom_api.h	2017-03-15 19:17:44.803961642 -0300
 @@ -0,0 +1,92 @@
 +/***********************************************************************
@@ -26989,8 +26990,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +
 +#endif /*__MW_USBD_ROM_API_H*/
 +
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/inc/usbhs_18xx_43xx.h ./libs/lpc_chip_43xx/inc/usbhs_18xx_43xx.h
---- a_IOCTOC/libs/lpc_chip_43xx/inc/usbhs_18xx_43xx.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/inc/usbhs_18xx_43xx.h ./libs/lpc_chip_43xx/inc/usbhs_18xx_43xx.h
+--- a_Pk9wCu/libs/lpc_chip_43xx/inc/usbhs_18xx_43xx.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/inc/usbhs_18xx_43xx.h	2017-03-15 19:17:44.803961642 -0300
 @@ -0,0 +1,123 @@
 +/*
@@ -27116,8 +27117,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +#endif
 +
 +#endif /* __USBHS_18XX_43XX_H_ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/inc/wwdt_18xx_43xx.h ./libs/lpc_chip_43xx/inc/wwdt_18xx_43xx.h
---- a_IOCTOC/libs/lpc_chip_43xx/inc/wwdt_18xx_43xx.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/inc/wwdt_18xx_43xx.h ./libs/lpc_chip_43xx/inc/wwdt_18xx_43xx.h
+--- a_Pk9wCu/libs/lpc_chip_43xx/inc/wwdt_18xx_43xx.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/inc/wwdt_18xx_43xx.h	2017-03-15 19:17:44.803961642 -0300
 @@ -0,0 +1,227 @@
 +/*
@@ -27347,8 +27348,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +#endif
 +
 +#endif /* __WWDT_18XX_43XX_H_ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/src/adc_18xx_43xx.c ./libs/lpc_chip_43xx/src/adc_18xx_43xx.c
---- a_IOCTOC/libs/lpc_chip_43xx/src/adc_18xx_43xx.c	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/src/adc_18xx_43xx.c ./libs/lpc_chip_43xx/src/adc_18xx_43xx.c
+--- a_Pk9wCu/libs/lpc_chip_43xx/src/adc_18xx_43xx.c	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/src/adc_18xx_43xx.c	2017-03-15 19:17:44.803961642 -0300
 @@ -0,0 +1,257 @@
 +/*
@@ -27608,8 +27609,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +   return rt;
 +}
 +
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/src/aes_18xx_43xx.c ./libs/lpc_chip_43xx/src/aes_18xx_43xx.c
---- a_IOCTOC/libs/lpc_chip_43xx/src/aes_18xx_43xx.c	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/src/aes_18xx_43xx.c ./libs/lpc_chip_43xx/src/aes_18xx_43xx.c
+--- a_Pk9wCu/libs/lpc_chip_43xx/src/aes_18xx_43xx.c	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/src/aes_18xx_43xx.c	2017-03-15 19:17:44.803961642 -0300
 @@ -0,0 +1,174 @@
 +/*
@@ -27786,8 +27787,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +{
 +   return aes_Get_Status_DMA(channel_id);
 +}
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/src/atimer_18xx_43xx.c ./libs/lpc_chip_43xx/src/atimer_18xx_43xx.c
---- a_IOCTOC/libs/lpc_chip_43xx/src/atimer_18xx_43xx.c	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/src/atimer_18xx_43xx.c ./libs/lpc_chip_43xx/src/atimer_18xx_43xx.c
+--- a_Pk9wCu/libs/lpc_chip_43xx/src/atimer_18xx_43xx.c	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/src/atimer_18xx_43xx.c	2017-03-15 19:17:44.803961642 -0300
 @@ -0,0 +1,63 @@
 +/*
@@ -27853,8 +27854,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +   Chip_ATIMER_IntDisable(pATIMER);
 +}
 +
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/src/ccan_18xx_43xx.c ./libs/lpc_chip_43xx/src/ccan_18xx_43xx.c
---- a_IOCTOC/libs/lpc_chip_43xx/src/ccan_18xx_43xx.c	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/src/ccan_18xx_43xx.c ./libs/lpc_chip_43xx/src/ccan_18xx_43xx.c
+--- a_Pk9wCu/libs/lpc_chip_43xx/src/ccan_18xx_43xx.c	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/src/ccan_18xx_43xx.c	2017-03-15 19:17:44.803961642 -0300
 @@ -0,0 +1,311 @@
 +/*
@@ -28168,8 +28169,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +   }
 +}
 +
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/src/chip_18xx_43xx.c ./libs/lpc_chip_43xx/src/chip_18xx_43xx.c
---- a_IOCTOC/libs/lpc_chip_43xx/src/chip_18xx_43xx.c	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/src/chip_18xx_43xx.c ./libs/lpc_chip_43xx/src/chip_18xx_43xx.c
+--- a_Pk9wCu/libs/lpc_chip_43xx/src/chip_18xx_43xx.c	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/src/chip_18xx_43xx.c	2017-03-15 19:17:44.803961642 -0300
 @@ -0,0 +1,117 @@
 +/*
@@ -28289,8 +28290,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +   /* CPU core speed */
 +   SystemCoreClock = Chip_Clock_GetRate(CLK_MX_MXCORE);
 +}
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/src/clock_18xx_43xx.c ./libs/lpc_chip_43xx/src/clock_18xx_43xx.c
---- a_IOCTOC/libs/lpc_chip_43xx/src/clock_18xx_43xx.c	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/src/clock_18xx_43xx.c ./libs/lpc_chip_43xx/src/clock_18xx_43xx.c
+--- a_Pk9wCu/libs/lpc_chip_43xx/src/clock_18xx_43xx.c	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/src/clock_18xx_43xx.c	2017-03-15 19:17:44.803961642 -0300
 @@ -0,0 +1,823 @@
 +/*
@@ -29116,8 +29117,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +{
 +   return LPC_CGU->PLL[pllnum].PLL_STAT;
 +}
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/src/dac_18xx_43xx.c ./libs/lpc_chip_43xx/src/dac_18xx_43xx.c
---- a_IOCTOC/libs/lpc_chip_43xx/src/dac_18xx_43xx.c	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/src/dac_18xx_43xx.c ./libs/lpc_chip_43xx/src/dac_18xx_43xx.c
+--- a_Pk9wCu/libs/lpc_chip_43xx/src/dac_18xx_43xx.c	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/src/dac_18xx_43xx.c	2017-03-15 19:17:44.803961642 -0300
 @@ -0,0 +1,85 @@
 +/*
@@ -29205,8 +29206,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +   }
 +}
 +
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/src/eeprom_18xx_43xx.c ./libs/lpc_chip_43xx/src/eeprom_18xx_43xx.c
---- a_IOCTOC/libs/lpc_chip_43xx/src/eeprom_18xx_43xx.c	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/src/eeprom_18xx_43xx.c ./libs/lpc_chip_43xx/src/eeprom_18xx_43xx.c
+--- a_Pk9wCu/libs/lpc_chip_43xx/src/eeprom_18xx_43xx.c	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/src/eeprom_18xx_43xx.c	2017-03-15 19:17:44.803961642 -0300
 @@ -0,0 +1,100 @@
 +/*
@@ -29309,8 +29310,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +   Chip_EEPROM_ClearIntStatus(pEEPROM, mask);
 +}
 +
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/src/emc_18xx_43xx.c ./libs/lpc_chip_43xx/src/emc_18xx_43xx.c
---- a_IOCTOC/libs/lpc_chip_43xx/src/emc_18xx_43xx.c	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/src/emc_18xx_43xx.c ./libs/lpc_chip_43xx/src/emc_18xx_43xx.c
+--- a_Pk9wCu/libs/lpc_chip_43xx/src/emc_18xx_43xx.c	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/src/emc_18xx_43xx.c	2017-03-15 19:17:44.807961590 -0300
 @@ -0,0 +1,289 @@
 +/*
@@ -29602,8 +29603,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +   LPC_EMC->CONTROL     = (Enable ? 1 : 0);
 +}
 +
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/src/enet_18xx_43xx.c ./libs/lpc_chip_43xx/src/enet_18xx_43xx.c
---- a_IOCTOC/libs/lpc_chip_43xx/src/enet_18xx_43xx.c	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/src/enet_18xx_43xx.c ./libs/lpc_chip_43xx/src/enet_18xx_43xx.c
+--- a_Pk9wCu/libs/lpc_chip_43xx/src/enet_18xx_43xx.c	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/src/enet_18xx_43xx.c	2017-03-15 19:17:44.807961590 -0300
 @@ -0,0 +1,182 @@
 +/*
@@ -29788,8 +29789,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +   }
 +}
 +
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/src/evrt_18xx_43xx.c ./libs/lpc_chip_43xx/src/evrt_18xx_43xx.c
---- a_IOCTOC/libs/lpc_chip_43xx/src/evrt_18xx_43xx.c	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/src/evrt_18xx_43xx.c ./libs/lpc_chip_43xx/src/evrt_18xx_43xx.c
+--- a_Pk9wCu/libs/lpc_chip_43xx/src/evrt_18xx_43xx.c	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/src/evrt_18xx_43xx.c	2017-03-15 19:17:44.807961590 -0300
 @@ -0,0 +1,111 @@
 +/*
@@ -29903,8 +29904,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +   }
 +   else {return RESET; }
 +}
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/src/fpu_init.c ./libs/lpc_chip_43xx/src/fpu_init.c
---- a_IOCTOC/libs/lpc_chip_43xx/src/fpu_init.c	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/src/fpu_init.c ./libs/lpc_chip_43xx/src/fpu_init.c
+--- a_Pk9wCu/libs/lpc_chip_43xx/src/fpu_init.c	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/src/fpu_init.c	2017-03-15 19:17:44.807961590 -0300
 @@ -0,0 +1,97 @@
 +/*
@@ -30004,8 +30005,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +}
 +
 +#endif /* defined(CORE_M4 */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/src/gpdma_18xx_43xx.c ./libs/lpc_chip_43xx/src/gpdma_18xx_43xx.c
---- a_IOCTOC/libs/lpc_chip_43xx/src/gpdma_18xx_43xx.c	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/src/gpdma_18xx_43xx.c ./libs/lpc_chip_43xx/src/gpdma_18xx_43xx.c
+--- a_Pk9wCu/libs/lpc_chip_43xx/src/gpdma_18xx_43xx.c	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/src/gpdma_18xx_43xx.c	2017-03-15 19:17:44.807961590 -0300
 @@ -0,0 +1,746 @@
 +/*
@@ -30754,8 +30755,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +   return 0;
 +}
 +
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/src/gpio_18xx_43xx.c ./libs/lpc_chip_43xx/src/gpio_18xx_43xx.c
---- a_IOCTOC/libs/lpc_chip_43xx/src/gpio_18xx_43xx.c	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/src/gpio_18xx_43xx.c ./libs/lpc_chip_43xx/src/gpio_18xx_43xx.c
+--- a_Pk9wCu/libs/lpc_chip_43xx/src/gpio_18xx_43xx.c	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/src/gpio_18xx_43xx.c	2017-03-15 19:17:44.807961590 -0300
 @@ -0,0 +1,102 @@
 +/*
@@ -30860,8 +30861,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +       Chip_GPIO_SetPortDIRInput(pGPIO, port, pinMask);
 +   }
 +}
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/src/gpiogroup_18xx_43xx.c ./libs/lpc_chip_43xx/src/gpiogroup_18xx_43xx.c
---- a_IOCTOC/libs/lpc_chip_43xx/src/gpiogroup_18xx_43xx.c	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/src/gpiogroup_18xx_43xx.c ./libs/lpc_chip_43xx/src/gpiogroup_18xx_43xx.c
+--- a_Pk9wCu/libs/lpc_chip_43xx/src/gpiogroup_18xx_43xx.c	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/src/gpiogroup_18xx_43xx.c	2017-03-15 19:17:44.807961590 -0300
 @@ -0,0 +1,48 @@
 +/*
@@ -30912,8 +30913,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +/*****************************************************************************
 + * Public functions
 + ****************************************************************************/
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/src/hsadc_18xx_43xx.c ./libs/lpc_chip_43xx/src/hsadc_18xx_43xx.c
---- a_IOCTOC/libs/lpc_chip_43xx/src/hsadc_18xx_43xx.c	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/src/hsadc_18xx_43xx.c ./libs/lpc_chip_43xx/src/hsadc_18xx_43xx.c
+--- a_Pk9wCu/libs/lpc_chip_43xx/src/hsadc_18xx_43xx.c	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/src/hsadc_18xx_43xx.c	2017-03-15 19:17:44.807961590 -0300
 @@ -0,0 +1,178 @@
 +/*
@@ -31094,8 +31095,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +   reg = pHSADC->POWER_CONTROL & ~mask;
 +   pHSADC->POWER_CONTROL = reg | orBits;
 +}
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/src/i2c_18xx_43xx.c ./libs/lpc_chip_43xx/src/i2c_18xx_43xx.c
---- a_IOCTOC/libs/lpc_chip_43xx/src/i2c_18xx_43xx.c	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/src/i2c_18xx_43xx.c ./libs/lpc_chip_43xx/src/i2c_18xx_43xx.c
+--- a_Pk9wCu/libs/lpc_chip_43xx/src/i2c_18xx_43xx.c	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/src/i2c_18xx_43xx.c	2017-03-15 19:17:44.807961590 -0300
 @@ -0,0 +1,554 @@
 +/*
@@ -31652,8 +31653,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +   return (LPC_I2Cx(id)->CONSET & I2C_CON_SI) != 0;
 +}
 +
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/src/i2cm_18xx_43xx.c ./libs/lpc_chip_43xx/src/i2cm_18xx_43xx.c
---- a_IOCTOC/libs/lpc_chip_43xx/src/i2cm_18xx_43xx.c	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/src/i2cm_18xx_43xx.c ./libs/lpc_chip_43xx/src/i2cm_18xx_43xx.c
+--- a_Pk9wCu/libs/lpc_chip_43xx/src/i2cm_18xx_43xx.c	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/src/i2cm_18xx_43xx.c	2017-03-15 19:17:44.807961590 -0300
 @@ -0,0 +1,265 @@
 +/*
@@ -31921,8 +31922,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +
 +   return rxLen;
 +}
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/src/i2s_18xx_43xx.c ./libs/lpc_chip_43xx/src/i2s_18xx_43xx.c
---- a_IOCTOC/libs/lpc_chip_43xx/src/i2s_18xx_43xx.c	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/src/i2s_18xx_43xx.c ./libs/lpc_chip_43xx/src/i2s_18xx_43xx.c
+--- a_Pk9wCu/libs/lpc_chip_43xx/src/i2s_18xx_43xx.c	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/src/i2s_18xx_43xx.c	2017-03-15 19:17:44.807961590 -0300
 @@ -0,0 +1,258 @@
 +/*
@@ -32183,8 +32184,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +   }
 +}
 +
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/src/iap_18xx_43xx.c ./libs/lpc_chip_43xx/src/iap_18xx_43xx.c
---- a_IOCTOC/libs/lpc_chip_43xx/src/iap_18xx_43xx.c	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/src/iap_18xx_43xx.c ./libs/lpc_chip_43xx/src/iap_18xx_43xx.c
+--- a_Pk9wCu/libs/lpc_chip_43xx/src/iap_18xx_43xx.c	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/src/iap_18xx_43xx.c	2017-03-15 19:17:44.807961590 -0300
 @@ -0,0 +1,191 @@
 +/*
@@ -32378,8 +32379,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +
 +   return result[0];
 +}
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/src/lcd_18xx_43xx.c ./libs/lpc_chip_43xx/src/lcd_18xx_43xx.c
---- a_IOCTOC/libs/lpc_chip_43xx/src/lcd_18xx_43xx.c	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/src/lcd_18xx_43xx.c ./libs/lpc_chip_43xx/src/lcd_18xx_43xx.c
+--- a_Pk9wCu/libs/lpc_chip_43xx/src/lcd_18xx_43xx.c	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/src/lcd_18xx_43xx.c	2017-03-15 19:17:44.811961537 -0300
 @@ -0,0 +1,206 @@
 +/*
@@ -32588,8 +32589,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +   }
 +}
 +
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/src/otp_18xx_43xx.c ./libs/lpc_chip_43xx/src/otp_18xx_43xx.c
---- a_IOCTOC/libs/lpc_chip_43xx/src/otp_18xx_43xx.c	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/src/otp_18xx_43xx.c ./libs/lpc_chip_43xx/src/otp_18xx_43xx.c
+--- a_Pk9wCu/libs/lpc_chip_43xx/src/otp_18xx_43xx.c	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/src/otp_18xx_43xx.c	2017-03-15 19:17:44.811961537 -0300
 @@ -0,0 +1,145 @@
 +/*
@@ -32737,8 +32738,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +{
 +   return Otp_GenRand();
 +}
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/src/pinint_18xx_43xx.c ./libs/lpc_chip_43xx/src/pinint_18xx_43xx.c
---- a_IOCTOC/libs/lpc_chip_43xx/src/pinint_18xx_43xx.c	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/src/pinint_18xx_43xx.c ./libs/lpc_chip_43xx/src/pinint_18xx_43xx.c
+--- a_Pk9wCu/libs/lpc_chip_43xx/src/pinint_18xx_43xx.c	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/src/pinint_18xx_43xx.c	2017-03-15 19:17:44.811961537 -0300
 @@ -0,0 +1,48 @@
 +/*
@@ -32789,8 +32790,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +/*****************************************************************************
 + * Public functions
 + ****************************************************************************/
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/src/pmc_18xx_43xx.c ./libs/lpc_chip_43xx/src/pmc_18xx_43xx.c
---- a_IOCTOC/libs/lpc_chip_43xx/src/pmc_18xx_43xx.c	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/src/pmc_18xx_43xx.c ./libs/lpc_chip_43xx/src/pmc_18xx_43xx.c
+--- a_Pk9wCu/libs/lpc_chip_43xx/src/pmc_18xx_43xx.c	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/src/pmc_18xx_43xx.c	2017-03-15 19:17:44.811961537 -0300
 @@ -0,0 +1,69 @@
 +/*
@@ -32862,8 +32863,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +   __WFI();
 +}
 +
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/src/ring_buffer.c ./libs/lpc_chip_43xx/src/ring_buffer.c
---- a_IOCTOC/libs/lpc_chip_43xx/src/ring_buffer.c	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/src/ring_buffer.c ./libs/lpc_chip_43xx/src/ring_buffer.c
+--- a_Pk9wCu/libs/lpc_chip_43xx/src/ring_buffer.c	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/src/ring_buffer.c	2017-03-15 19:17:44.811961537 -0300
 @@ -0,0 +1,167 @@
 +/*
@@ -33033,8 +33034,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +
 +   return cnt1 + cnt2;
 +}
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/src/ritimer_18xx_43xx.c ./libs/lpc_chip_43xx/src/ritimer_18xx_43xx.c
---- a_IOCTOC/libs/lpc_chip_43xx/src/ritimer_18xx_43xx.c	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/src/ritimer_18xx_43xx.c ./libs/lpc_chip_43xx/src/ritimer_18xx_43xx.c
+--- a_Pk9wCu/libs/lpc_chip_43xx/src/ritimer_18xx_43xx.c	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/src/ritimer_18xx_43xx.c	2017-03-15 19:17:44.811961537 -0300
 @@ -0,0 +1,97 @@
 +/*
@@ -33134,8 +33135,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +   return (IntStatus) result;
 +}
 +
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/src/rtc_18xx_43xx.c ./libs/lpc_chip_43xx/src/rtc_18xx_43xx.c
---- a_IOCTOC/libs/lpc_chip_43xx/src/rtc_18xx_43xx.c	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/src/rtc_18xx_43xx.c ./libs/lpc_chip_43xx/src/rtc_18xx_43xx.c
+--- a_Pk9wCu/libs/lpc_chip_43xx/src/rtc_18xx_43xx.c	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/src/rtc_18xx_43xx.c	2017-03-15 19:17:44.811961537 -0300
 @@ -0,0 +1,220 @@
 +/*
@@ -33358,8 +33359,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +
 +#endif /*RTC_EV_SUPPORT*/
 +
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/src/sct_18xx_43xx.c ./libs/lpc_chip_43xx/src/sct_18xx_43xx.c
---- a_IOCTOC/libs/lpc_chip_43xx/src/sct_18xx_43xx.c	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/src/sct_18xx_43xx.c ./libs/lpc_chip_43xx/src/sct_18xx_43xx.c
+--- a_Pk9wCu/libs/lpc_chip_43xx/src/sct_18xx_43xx.c	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/src/sct_18xx_43xx.c	2017-03-15 19:17:44.811961537 -0300
 @@ -0,0 +1,87 @@
 +/*
@@ -33449,8 +33450,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +   pSCT->RES = tem;
 +}
 +
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/src/sct_pwm_18xx_43xx.c ./libs/lpc_chip_43xx/src/sct_pwm_18xx_43xx.c
---- a_IOCTOC/libs/lpc_chip_43xx/src/sct_pwm_18xx_43xx.c	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/src/sct_pwm_18xx_43xx.c ./libs/lpc_chip_43xx/src/sct_pwm_18xx_43xx.c
+--- a_Pk9wCu/libs/lpc_chip_43xx/src/sct_pwm_18xx_43xx.c	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/src/sct_pwm_18xx_43xx.c	2017-03-15 19:17:44.811961537 -0300
 @@ -0,0 +1,87 @@
 +/*
@@ -33540,8 +33541,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +   /* Set SCT Counter to count 32-bits and reset to 0 after reaching MATCH0 */
 +   Chip_SCT_Config(pSCT, SCT_CONFIG_32BIT_COUNTER | SCT_CONFIG_AUTOLIMIT_L);
 +}
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/src/sdif_18xx_43xx.c ./libs/lpc_chip_43xx/src/sdif_18xx_43xx.c
---- a_IOCTOC/libs/lpc_chip_43xx/src/sdif_18xx_43xx.c	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/src/sdif_18xx_43xx.c ./libs/lpc_chip_43xx/src/sdif_18xx_43xx.c
+--- a_Pk9wCu/libs/lpc_chip_43xx/src/sdif_18xx_43xx.c	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/src/sdif_18xx_43xx.c	2017-03-15 19:17:44.811961537 -0300
 @@ -0,0 +1,223 @@
 +/*
@@ -33767,8 +33768,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +   pSDMMC->DBADDR = (uint32_t) &psdif_dev->mci_dma_dd[0];
 +}
 +
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/src/sdio_18xx_43xx.c ./libs/lpc_chip_43xx/src/sdio_18xx_43xx.c
---- a_IOCTOC/libs/lpc_chip_43xx/src/sdio_18xx_43xx.c	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/src/sdio_18xx_43xx.c ./libs/lpc_chip_43xx/src/sdio_18xx_43xx.c
+--- a_Pk9wCu/libs/lpc_chip_43xx/src/sdio_18xx_43xx.c	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/src/sdio_18xx_43xx.c	2017-03-15 19:17:44.811961537 -0300
 @@ -0,0 +1,518 @@
 +/*
@@ -34289,8 +34290,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +   /* Clear the interrupts */
 +   pSDMMC->RINTSTS = iclr;
 +}
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/src/sdmmc_18xx_43xx.c ./libs/lpc_chip_43xx/src/sdmmc_18xx_43xx.c
---- a_IOCTOC/libs/lpc_chip_43xx/src/sdmmc_18xx_43xx.c	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/src/sdmmc_18xx_43xx.c ./libs/lpc_chip_43xx/src/sdmmc_18xx_43xx.c
+--- a_Pk9wCu/libs/lpc_chip_43xx/src/sdmmc_18xx_43xx.c	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/src/sdmmc_18xx_43xx.c	2017-03-15 19:17:44.811961537 -0300
 @@ -0,0 +1,592 @@
 +/*
@@ -34885,8 +34886,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +
 +   return cbWrote;
 +}
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/src/spi_18xx_43xx.c ./libs/lpc_chip_43xx/src/spi_18xx_43xx.c
---- a_IOCTOC/libs/lpc_chip_43xx/src/spi_18xx_43xx.c	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/src/spi_18xx_43xx.c ./libs/lpc_chip_43xx/src/spi_18xx_43xx.c
+--- a_Pk9wCu/libs/lpc_chip_43xx/src/spi_18xx_43xx.c	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/src/spi_18xx_43xx.c	2017-03-15 19:17:44.811961537 -0300
 @@ -0,0 +1,227 @@
 +/*
@@ -35116,8 +35117,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +}
 +
 +#endif
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/src/ssp_18xx_43xx.c ./libs/lpc_chip_43xx/src/ssp_18xx_43xx.c
---- a_IOCTOC/libs/lpc_chip_43xx/src/ssp_18xx_43xx.c	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/src/ssp_18xx_43xx.c ./libs/lpc_chip_43xx/src/ssp_18xx_43xx.c
+--- a_Pk9wCu/libs/lpc_chip_43xx/src/ssp_18xx_43xx.c	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/src/ssp_18xx_43xx.c	2017-03-15 19:17:44.815961485 -0300
 @@ -0,0 +1,469 @@
 +/*
@@ -35589,8 +35590,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +
 +}
 +
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/src/stopwatch_18xx_43xx.c ./libs/lpc_chip_43xx/src/stopwatch_18xx_43xx.c
---- a_IOCTOC/libs/lpc_chip_43xx/src/stopwatch_18xx_43xx.c	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/src/stopwatch_18xx_43xx.c ./libs/lpc_chip_43xx/src/stopwatch_18xx_43xx.c
+--- a_Pk9wCu/libs/lpc_chip_43xx/src/stopwatch_18xx_43xx.c	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/src/stopwatch_18xx_43xx.c	2017-03-15 19:17:44.815961485 -0300
 @@ -0,0 +1,106 @@
 +/*
@@ -35699,8 +35700,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +{
 +   return uS * ticksPerUs;
 +}
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/src/sysinit_18xx_43xx.c ./libs/lpc_chip_43xx/src/sysinit_18xx_43xx.c
---- a_IOCTOC/libs/lpc_chip_43xx/src/sysinit_18xx_43xx.c	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/src/sysinit_18xx_43xx.c ./libs/lpc_chip_43xx/src/sysinit_18xx_43xx.c
+--- a_Pk9wCu/libs/lpc_chip_43xx/src/sysinit_18xx_43xx.c	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/src/sysinit_18xx_43xx.c	2017-03-15 19:17:44.815961485 -0300
 @@ -0,0 +1,162 @@
 +/*
@@ -35865,8 +35866,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +   /* Initial internal clocking */
 +   Chip_SetupIrcClocking();
 +}
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/src/timer_18xx_43xx.c ./libs/lpc_chip_43xx/src/timer_18xx_43xx.c
---- a_IOCTOC/libs/lpc_chip_43xx/src/timer_18xx_43xx.c	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/src/timer_18xx_43xx.c ./libs/lpc_chip_43xx/src/timer_18xx_43xx.c
+--- a_Pk9wCu/libs/lpc_chip_43xx/src/timer_18xx_43xx.c	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/src/timer_18xx_43xx.c	2017-03-15 19:17:44.815961485 -0300
 @@ -0,0 +1,117 @@
 +/*
@@ -35986,8 +35987,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +               (((uint32_t) matchState) << (4 + (matchnum * 2)));
 +}
 +
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/src/uart_18xx_43xx.c ./libs/lpc_chip_43xx/src/uart_18xx_43xx.c
---- a_IOCTOC/libs/lpc_chip_43xx/src/uart_18xx_43xx.c	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/src/uart_18xx_43xx.c ./libs/lpc_chip_43xx/src/uart_18xx_43xx.c
+--- a_Pk9wCu/libs/lpc_chip_43xx/src/uart_18xx_43xx.c	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/src/uart_18xx_43xx.c	2017-03-15 19:17:44.815961485 -0300
 @@ -0,0 +1,424 @@
 +/*
@@ -36414,8 +36415,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +   }
 +}
 +
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/src/wwdt_18xx_43xx.c ./libs/lpc_chip_43xx/src/wwdt_18xx_43xx.c
---- a_IOCTOC/libs/lpc_chip_43xx/src/wwdt_18xx_43xx.c	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/src/wwdt_18xx_43xx.c ./libs/lpc_chip_43xx/src/wwdt_18xx_43xx.c
+--- a_Pk9wCu/libs/lpc_chip_43xx/src/wwdt_18xx_43xx.c	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/src/wwdt_18xx_43xx.c	2017-03-15 19:17:44.815961485 -0300
 @@ -0,0 +1,78 @@
 +/*
@@ -36496,15 +36497,15 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +   }
 +}
 +
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/lpc_chip_43xx/version.txt ./libs/lpc_chip_43xx/version.txt
---- a_IOCTOC/libs/lpc_chip_43xx/version.txt	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/lpc_chip_43xx/version.txt ./libs/lpc_chip_43xx/version.txt
+--- a_Pk9wCu/libs/lpc_chip_43xx/version.txt	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/lpc_chip_43xx/version.txt	2017-03-15 19:17:44.815961485 -0300
 @@ -0,0 +1,3 @@
 +LPCOPEN VERSION: 2_16
 +RELEASE DATE:
 +Fri 02/20/2015
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/sapi/inc/sapi_7_segment_display.h ./libs/sapi/inc/sapi_7_segment_display.h
---- a_IOCTOC/libs/sapi/inc/sapi_7_segment_display.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/sapi/inc/sapi_7_segment_display.h ./libs/sapi/inc/sapi_7_segment_display.h
+--- a_Pk9wCu/libs/sapi/inc/sapi_7_segment_display.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/sapi/inc/sapi_7_segment_display.h	2017-03-15 19:17:44.815961485 -0300
 @@ -0,0 +1,87 @@
 +/* Copyright 2016, Eric Pernia.
@@ -36594,8 +36595,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +
 +/*==================[end of file]============================================*/
 +#endif /* #ifndef _SAPI_7_SEGMENT_DISPLAY_H_ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/sapi/inc/sapi_adc.h ./libs/sapi/inc/sapi_adc.h
---- a_IOCTOC/libs/sapi/inc/sapi_adc.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/sapi/inc/sapi_adc.h ./libs/sapi/inc/sapi_adc.h
+--- a_Pk9wCu/libs/sapi/inc/sapi_adc.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/sapi/inc/sapi_adc.h	2017-03-15 19:17:44.815961485 -0300
 @@ -0,0 +1,74 @@
 +/* Copyright 2016, Ian Olivieri
@@ -36672,8 +36673,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +
 +/*==================[end of file]============================================*/
 +#endif /* #ifndef SAPI_ADC_H_ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/sapi/inc/sapi_board.h ./libs/sapi/inc/sapi_board.h
---- a_IOCTOC/libs/sapi/inc/sapi_board.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/sapi/inc/sapi_board.h ./libs/sapi/inc/sapi_board.h
+--- a_Pk9wCu/libs/sapi/inc/sapi_board.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/sapi/inc/sapi_board.h	2017-03-15 19:17:44.815961485 -0300
 @@ -0,0 +1,66 @@
 +/* Copyright 2015-2016, Eric Pernia.
@@ -36742,8 +36743,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +
 +/*==================[end of file]============================================*/
 +#endif /* #ifndef _SAPI_BOARD_H_ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/sapi/inc/sapi_dac.h ./libs/sapi/inc/sapi_dac.h
---- a_IOCTOC/libs/sapi/inc/sapi_dac.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/sapi/inc/sapi_dac.h ./libs/sapi/inc/sapi_dac.h
+--- a_Pk9wCu/libs/sapi/inc/sapi_dac.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/sapi/inc/sapi_dac.h	2017-03-15 19:17:44.815961485 -0300
 @@ -0,0 +1,74 @@
 +/* Copyright 2016, Ian Olivieri
@@ -36820,8 +36821,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +
 +/*==================[end of file]============================================*/
 +#endif /* #ifndef _SAPI_DAC_H_ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/sapi/inc/sapi_datatypes.h ./libs/sapi/inc/sapi_datatypes.h
---- a_IOCTOC/libs/sapi/inc/sapi_datatypes.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/sapi/inc/sapi_datatypes.h ./libs/sapi/inc/sapi_datatypes.h
+--- a_Pk9wCu/libs/sapi/inc/sapi_datatypes.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/sapi/inc/sapi_datatypes.h	2017-03-15 19:17:44.815961485 -0300
 @@ -0,0 +1,116 @@
 +/* Copyright 2015-2016, Eric Pernia.
@@ -36940,8 +36941,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +
 +/*==================[end of file]============================================*/
 +#endif /* #ifndef _SAPI_DATATYPES_H_ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/sapi/inc/sapi_delay.h ./libs/sapi/inc/sapi_delay.h
---- a_IOCTOC/libs/sapi/inc/sapi_delay.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/sapi/inc/sapi_delay.h ./libs/sapi/inc/sapi_delay.h
+--- a_Pk9wCu/libs/sapi/inc/sapi_delay.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/sapi/inc/sapi_delay.h	2017-03-15 19:17:44.815961485 -0300
 @@ -0,0 +1,86 @@
 +/* Copyright 2015-2016, Eric Pernia.
@@ -37030,8 +37031,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +
 +/*==================[end of file]============================================*/
 +#endif /* #ifndef _SAPI_DELAY_H_ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/sapi/inc/sapi_es.h ./libs/sapi/inc/sapi_es.h
---- a_IOCTOC/libs/sapi/inc/sapi_es.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/sapi/inc/sapi_es.h ./libs/sapi/inc/sapi_es.h
+--- a_Pk9wCu/libs/sapi/inc/sapi_es.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/sapi/inc/sapi_es.h	2017-03-15 19:43:44.278536940 -0300
 @@ -0,0 +1,158 @@
 +#ifndef SAPI_I18N_ES
@@ -37192,8 +37193,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +#define leerTecladoMatricial                      keypadRead
 +
 +#endif /* SAPI_I18N_ES */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/sapi/inc/sapi_gpio.h ./libs/sapi/inc/sapi_gpio.h
---- a_IOCTOC/libs/sapi/inc/sapi_gpio.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/sapi/inc/sapi_gpio.h ./libs/sapi/inc/sapi_gpio.h
+--- a_Pk9wCu/libs/sapi/inc/sapi_gpio.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/sapi/inc/sapi_gpio.h	2017-03-15 19:17:44.815961485 -0300
 @@ -0,0 +1,101 @@
 +/* Copyright 2015-2016, Eric Pernia.
@@ -37297,8 +37298,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +
 +/*==================[end of file]============================================*/
 +#endif /* #ifndef _SAPI_GPIO_H_ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/sapi/inc/sapi.h ./libs/sapi/inc/sapi.h
---- a_IOCTOC/libs/sapi/inc/sapi.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/sapi/inc/sapi.h ./libs/sapi/inc/sapi.h
+--- a_Pk9wCu/libs/sapi/inc/sapi.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/sapi/inc/sapi.h	2017-03-15 19:17:44.815961485 -0300
 @@ -0,0 +1,87 @@
 +/* Copyright 2015-2017, Eric Pernia.
@@ -37388,8 +37389,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +
 +/*==================[end of file]============================================*/
 +#endif /* #ifndef _SAPI_H_ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/sapi/inc/sapi_hmc5883l.h ./libs/sapi/inc/sapi_hmc5883l.h
---- a_IOCTOC/libs/sapi/inc/sapi_hmc5883l.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/sapi/inc/sapi_hmc5883l.h ./libs/sapi/inc/sapi_hmc5883l.h
+--- a_Pk9wCu/libs/sapi/inc/sapi_hmc5883l.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/sapi/inc/sapi_hmc5883l.h	2017-03-15 19:17:44.819961433 -0300
 @@ -0,0 +1,154 @@
 +/* Copyright 2016, Alejandro Permingeat
@@ -37546,8 +37547,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +
 +/*==================[end of file]============================================*/
 +#endif /* #ifndef _SAPI_HMC5883L_H_ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/sapi/inc/sapi_i2c.h ./libs/sapi/inc/sapi_i2c.h
---- a_IOCTOC/libs/sapi/inc/sapi_i2c.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/sapi/inc/sapi_i2c.h ./libs/sapi/inc/sapi_i2c.h
+--- a_Pk9wCu/libs/sapi/inc/sapi_i2c.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/sapi/inc/sapi_i2c.h	2017-03-15 19:17:44.819961433 -0300
 @@ -0,0 +1,133 @@
 +/* Copyright 2016, Eric Pernia
@@ -37683,8 +37684,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +
 +/*==================[end of file]============================================*/
 +#endif /* #ifndef _SAPI_I2C_H_ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/sapi/inc/sapi_keypad.h ./libs/sapi/inc/sapi_keypad.h
---- a_IOCTOC/libs/sapi/inc/sapi_keypad.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/sapi/inc/sapi_keypad.h ./libs/sapi/inc/sapi_keypad.h
+--- a_Pk9wCu/libs/sapi/inc/sapi_keypad.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/sapi/inc/sapi_keypad.h	2017-03-15 19:17:44.819961433 -0300
 @@ -0,0 +1,67 @@
 +/* Copyright 2016, Eric Pernia.
@@ -37754,8 +37755,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +
 +/*==================[end of file]============================================*/
 +#endif /* #ifndef _SAPI_KEYPAD_H_ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/sapi/inc/sapi_peripheral_map.h ./libs/sapi/inc/sapi_peripheral_map.h
---- a_IOCTOC/libs/sapi/inc/sapi_peripheral_map.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/sapi/inc/sapi_peripheral_map.h ./libs/sapi/inc/sapi_peripheral_map.h
+--- a_Pk9wCu/libs/sapi/inc/sapi_peripheral_map.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/sapi/inc/sapi_peripheral_map.h	2017-03-15 19:17:44.819961433 -0300
 @@ -0,0 +1,170 @@
 +/* Copyright 2015, Eric Pernia.
@@ -37928,8 +37929,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +
 +/*==================[end of file]============================================*/
 +#endif /* #ifndef _SAPI_PERIPHERALMAP_H_ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/sapi/inc/sapi_pwm.h ./libs/sapi/inc/sapi_pwm.h
---- a_IOCTOC/libs/sapi/inc/sapi_pwm.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/sapi/inc/sapi_pwm.h ./libs/sapi/inc/sapi_pwm.h
+--- a_Pk9wCu/libs/sapi/inc/sapi_pwm.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/sapi/inc/sapi_pwm.h	2017-03-15 19:17:44.819961433 -0300
 @@ -0,0 +1,102 @@
 +/* Copyright 2016, Ian Olivieri
@@ -38034,8 +38035,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +
 +/*==================[end of file]============================================*/
 +#endif /* PWM_DRIVER_H_ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/sapi/inc/sapi_rtc.h ./libs/sapi/inc/sapi_rtc.h
---- a_IOCTOC/libs/sapi/inc/sapi_rtc.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/sapi/inc/sapi_rtc.h ./libs/sapi/inc/sapi_rtc.h
+--- a_Pk9wCu/libs/sapi/inc/sapi_rtc.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/sapi/inc/sapi_rtc.h	2017-03-15 19:17:44.819961433 -0300
 @@ -0,0 +1,97 @@
 +/* Copyright 2011, ChaN.
@@ -38135,8 +38136,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +
 +/*==================[end of file]============================================*/
 +#endif /* _SAPI_RTC_H_ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/sapi/inc/sapi_sct.h ./libs/sapi/inc/sapi_sct.h
---- a_IOCTOC/libs/sapi/inc/sapi_sct.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/sapi/inc/sapi_sct.h ./libs/sapi/inc/sapi_sct.h
+--- a_Pk9wCu/libs/sapi/inc/sapi_sct.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/sapi/inc/sapi_sct.h	2017-03-15 19:17:44.819961433 -0300
 @@ -0,0 +1,108 @@
 +/* Copyright 2016, Ian Olivieri
@@ -38247,8 +38248,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +
 +/*==================[end of file]============================================*/
 +#endif /* SAPI_SCT_H_ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/sapi/inc/sapi_servo.h ./libs/sapi/inc/sapi_servo.h
---- a_IOCTOC/libs/sapi/inc/sapi_servo.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/sapi/inc/sapi_servo.h ./libs/sapi/inc/sapi_servo.h
+--- a_Pk9wCu/libs/sapi/inc/sapi_servo.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/sapi/inc/sapi_servo.h	2017-03-15 19:17:44.819961433 -0300
 @@ -0,0 +1,105 @@
 +/* Copyright 2016, Ian Olivieri
@@ -38356,8 +38357,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +
 +/*==================[end of file]============================================*/
 +#endif /* SAPI_SERVO_H_ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/sapi/inc/sapi_sleep.h ./libs/sapi/inc/sapi_sleep.h
---- a_IOCTOC/libs/sapi/inc/sapi_sleep.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/sapi/inc/sapi_sleep.h ./libs/sapi/inc/sapi_sleep.h
+--- a_Pk9wCu/libs/sapi/inc/sapi_sleep.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/sapi/inc/sapi_sleep.h	2017-03-15 19:17:44.819961433 -0300
 @@ -0,0 +1,72 @@
 +/* Copyright 2016, Eric Pernia.
@@ -38432,8 +38433,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +
 +/*==================[end of file]============================================*/
 +#endif /* SAPI_SCT_H_ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/sapi/inc/sapi_spi.h ./libs/sapi/inc/sapi_spi.h
---- a_IOCTOC/libs/sapi/inc/sapi_spi.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/sapi/inc/sapi_spi.h ./libs/sapi/inc/sapi_spi.h
+--- a_Pk9wCu/libs/sapi/inc/sapi_spi.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/sapi/inc/sapi_spi.h	2017-03-15 19:17:44.819961433 -0300
 @@ -0,0 +1,67 @@
 +/* Copyright 2016, Eric Pernia.
@@ -38503,8 +38504,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +
 +/*==================[end of file]============================================*/
 +#endif /* #ifndef _SAPI_SPI_H_ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/sapi/inc/sapi_tick.h ./libs/sapi/inc/sapi_tick.h
---- a_IOCTOC/libs/sapi/inc/sapi_tick.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/sapi/inc/sapi_tick.h ./libs/sapi/inc/sapi_tick.h
+--- a_Pk9wCu/libs/sapi/inc/sapi_tick.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/sapi/inc/sapi_tick.h	2017-03-15 19:17:44.819961433 -0300
 @@ -0,0 +1,77 @@
 +/* Copyright 2015-2016, Eric Pernia.
@@ -38584,8 +38585,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +
 +/*==================[end of file]============================================*/
 +#endif /* #ifndef _SAPI_TICK_H_ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/sapi/inc/sapi_timer.h ./libs/sapi/inc/sapi_timer.h
---- a_IOCTOC/libs/sapi/inc/sapi_timer.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/sapi/inc/sapi_timer.h ./libs/sapi/inc/sapi_timer.h
+--- a_Pk9wCu/libs/sapi/inc/sapi_timer.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/sapi/inc/sapi_timer.h	2017-03-15 19:17:44.819961433 -0300
 @@ -0,0 +1,128 @@
 +/* Copyright 2016, Ian Olivieri
@@ -38716,8 +38717,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +
 +/*==================[end of file]============================================*/
 +#endif /* SAPI_TIMER_H_ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/sapi/inc/sapi_uart.h ./libs/sapi/inc/sapi_uart.h
---- a_IOCTOC/libs/sapi/inc/sapi_uart.h	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/sapi/inc/sapi_uart.h ./libs/sapi/inc/sapi_uart.h
+--- a_Pk9wCu/libs/sapi/inc/sapi_uart.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/sapi/inc/sapi_uart.h	2017-03-15 19:17:44.819961433 -0300
 @@ -0,0 +1,104 @@
 +/* Copyright 2016, Eric Pernia.
@@ -38824,8 +38825,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +
 +/*==================[end of file]============================================*/
 +#endif /* _SAPI_UART_H_ */
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/sapi/LICENSE ./libs/sapi/LICENSE
---- a_IOCTOC/libs/sapi/LICENSE	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/sapi/LICENSE ./libs/sapi/LICENSE
+--- a_Pk9wCu/libs/sapi/LICENSE	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/sapi/LICENSE	2017-03-15 19:17:44.819961433 -0300
 @@ -0,0 +1,27 @@
 +Copyright (c) 2016, Eric Pernia
@@ -38855,8 +38856,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 +OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 +OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/sapi/README.md ./libs/sapi/README.md
---- a_IOCTOC/libs/sapi/README.md	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/sapi/README.md ./libs/sapi/README.md
+--- a_Pk9wCu/libs/sapi/README.md	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/sapi/README.md	2017-03-15 19:17:44.819961433 -0300
 @@ -0,0 +1,54 @@
 +# sAPI library for microcontrollers
@@ -38913,8 +38914,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +
 +- EDU-CIAA-NXP (NXP LPC4337 microcontroller). [Download documentation.](docs/assets/pdf/EDU-CIAA-NXP_sAPI_bm_A4_v1r0_ES.pdf)
 +- CIAA-NXP (NXP LPC4337 microcontroller).
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/sapi/src/sapi_7_segment_display.c ./libs/sapi/src/sapi_7_segment_display.c
---- a_IOCTOC/libs/sapi/src/sapi_7_segment_display.c	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/sapi/src/sapi_7_segment_display.c ./libs/sapi/src/sapi_7_segment_display.c
+--- a_Pk9wCu/libs/sapi/src/sapi_7_segment_display.c	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/sapi/src/sapi_7_segment_display.c	2017-03-15 19:17:44.819961433 -0300
 @@ -0,0 +1,200 @@
 +/* Copyright 2016, Eric Pernia.
@@ -39117,8 +39118,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +}
 +
 +/*==================[end of file]============================================*/
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/sapi/src/sapi_adc.c ./libs/sapi/src/sapi_adc.c
---- a_IOCTOC/libs/sapi/src/sapi_adc.c	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/sapi/src/sapi_adc.c ./libs/sapi/src/sapi_adc.c
+--- a_Pk9wCu/libs/sapi/src/sapi_adc.c	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/sapi/src/sapi_adc.c	2017-03-15 19:17:44.819961433 -0300
 @@ -0,0 +1,132 @@
 +/* Copyright 2016, Ian Olivieri
@@ -39253,8 +39254,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +}
 +
 +/*==================[end of file]============================================*/
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/sapi/src/sapi_board.c ./libs/sapi/src/sapi_board.c
---- a_IOCTOC/libs/sapi/src/sapi_board.c	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/sapi/src/sapi_board.c ./libs/sapi/src/sapi_board.c
+--- a_Pk9wCu/libs/sapi/src/sapi_board.c	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/sapi/src/sapi_board.c	2017-03-15 19:17:44.819961433 -0300
 @@ -0,0 +1,108 @@
 +/* Copyright 2015-2016, Eric Pernia.
@@ -39365,8 +39366,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +}
 +
 +/*==================[end of file]============================================*/
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/sapi/src/sapi_dac.c ./libs/sapi/src/sapi_dac.c
---- a_IOCTOC/libs/sapi/src/sapi_dac.c	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/sapi/src/sapi_dac.c ./libs/sapi/src/sapi_dac.c
+--- a_Pk9wCu/libs/sapi/src/sapi_dac.c	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/sapi/src/sapi_dac.c	2017-03-15 19:17:44.819961433 -0300
 @@ -0,0 +1,100 @@
 +/* Copyright 2016, Ian Olivieri
@@ -39469,8 +39470,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +}
 +
 +/*==================[end of file]============================================*/
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/sapi/src/sapi_datatypes.c ./libs/sapi/src/sapi_datatypes.c
---- a_IOCTOC/libs/sapi/src/sapi_datatypes.c	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/sapi/src/sapi_datatypes.c ./libs/sapi/src/sapi_datatypes.c
+--- a_Pk9wCu/libs/sapi/src/sapi_datatypes.c	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/sapi/src/sapi_datatypes.c	2017-03-15 19:17:44.823961379 -0300
 @@ -0,0 +1,90 @@
 +/* Copyright 2016, Eric Pernia.
@@ -39563,8 +39564,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +
 +/** @} doxygen end group definition */
 +/*==================[end of file]============================================*/
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/sapi/src/sapi_delay.c ./libs/sapi/src/sapi_delay.c
---- a_IOCTOC/libs/sapi/src/sapi_delay.c	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/sapi/src/sapi_delay.c ./libs/sapi/src/sapi_delay.c
+--- a_Pk9wCu/libs/sapi/src/sapi_delay.c	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/sapi/src/sapi_delay.c	2017-03-15 19:17:44.823961379 -0300
 @@ -0,0 +1,116 @@
 +/* Copyright 2015-2016, Eric Pernia.
@@ -39683,8 +39684,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +}
 +
 +/*==================[end of file]============================================*/
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/sapi/src/sapi_gpio.c ./libs/sapi/src/sapi_gpio.c
---- a_IOCTOC/libs/sapi/src/sapi_gpio.c	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/sapi/src/sapi_gpio.c ./libs/sapi/src/sapi_gpio.c
+--- a_Pk9wCu/libs/sapi/src/sapi_gpio.c	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/sapi/src/sapi_gpio.c	2017-03-15 19:17:44.823961379 -0300
 @@ -0,0 +1,331 @@
 +/* Copyright 2015-2016, Eric Pernia.
@@ -40018,8 +40019,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +}
 +
 +/*==================[end of file]============================================*/
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/sapi/src/sapi_hmc5883l.c ./libs/sapi/src/sapi_hmc5883l.c
---- a_IOCTOC/libs/sapi/src/sapi_hmc5883l.c	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/sapi/src/sapi_hmc5883l.c ./libs/sapi/src/sapi_hmc5883l.c
+--- a_Pk9wCu/libs/sapi/src/sapi_hmc5883l.c	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/sapi/src/sapi_hmc5883l.c	2017-03-15 19:17:44.823961379 -0300
 @@ -0,0 +1,154 @@
 +/* Copyright 2016, Alejandro Permingeat
@@ -40176,8 +40177,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +
 +   return(result); /** TODO: return value must reflect the result of the operation */
 +}
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/sapi/src/sapi_i2c.c ./libs/sapi/src/sapi_i2c.c
---- a_IOCTOC/libs/sapi/src/sapi_i2c.c	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/sapi/src/sapi_i2c.c ./libs/sapi/src/sapi_i2c.c
+--- a_Pk9wCu/libs/sapi/src/sapi_i2c.c	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/sapi/src/sapi_i2c.c	2017-03-15 19:17:44.823961379 -0300
 @@ -0,0 +1,770 @@
 +/* Copyright 2016, Eric Pernia
@@ -40950,8 +40951,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +/*==================[ISR external functions definition]======================*/
 +
 +/*==================[end of file]============================================*/
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/sapi/src/sapi_keypad.c ./libs/sapi/src/sapi_keypad.c
---- a_IOCTOC/libs/sapi/src/sapi_keypad.c	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/sapi/src/sapi_keypad.c ./libs/sapi/src/sapi_keypad.c
+--- a_Pk9wCu/libs/sapi/src/sapi_keypad.c	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/sapi/src/sapi_keypad.c	2017-03-15 19:17:44.823961379 -0300
 @@ -0,0 +1,158 @@
 +/* Copyright 2016, Eric Pernia.
@@ -41112,8 +41113,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +}
 +
 +/*==================[end of file]============================================*/
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/sapi/src/sapi_pwm.c ./libs/sapi/src/sapi_pwm.c
---- a_IOCTOC/libs/sapi/src/sapi_pwm.c	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/sapi/src/sapi_pwm.c ./libs/sapi/src/sapi_pwm.c
+--- a_Pk9wCu/libs/sapi/src/sapi_pwm.c	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/sapi/src/sapi_pwm.c	2017-03-15 19:17:44.823961379 -0300
 @@ -0,0 +1,273 @@
 +/* Copyright 2016, Ian Olivieri
@@ -41389,8 +41390,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +}
 +
 +/*==================[end of file]============================================*/
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/sapi/src/sapi_rtc.c ./libs/sapi/src/sapi_rtc.c
---- a_IOCTOC/libs/sapi/src/sapi_rtc.c	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/sapi/src/sapi_rtc.c ./libs/sapi/src/sapi_rtc.c
+--- a_Pk9wCu/libs/sapi/src/sapi_rtc.c	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/sapi/src/sapi_rtc.c	2017-03-15 19:17:44.827961328 -0300
 @@ -0,0 +1,146 @@
 +/* Copyright 2011, ChaN.
@@ -41539,8 +41540,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +}
 +
 +/*==================[end of file]============================================*/
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/sapi/src/sapi_sct.c ./libs/sapi/src/sapi_sct.c
---- a_IOCTOC/libs/sapi/src/sapi_sct.c	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/sapi/src/sapi_sct.c ./libs/sapi/src/sapi_sct.c
+--- a_Pk9wCu/libs/sapi/src/sapi_sct.c	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/sapi/src/sapi_sct.c	2017-03-15 19:17:44.827961328 -0300
 @@ -0,0 +1,167 @@
 +/* Copyright 2016, Ian Olivieri
@@ -41710,8 +41711,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +}
 +
 +/*==================[end of file]============================================*/
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/sapi/src/sapi_servo.c ./libs/sapi/src/sapi_servo.c
---- a_IOCTOC/libs/sapi/src/sapi_servo.c	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/sapi/src/sapi_servo.c ./libs/sapi/src/sapi_servo.c
+--- a_Pk9wCu/libs/sapi/src/sapi_servo.c	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/sapi/src/sapi_servo.c	2017-03-15 19:17:44.827961328 -0300
 @@ -0,0 +1,421 @@
 +/* Copyright 2016, Ian Olivieri
@@ -42135,8 +42136,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +}
 +
 +/*==================[end of file]============================================*/
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/sapi/src/sapi_sleep.c ./libs/sapi/src/sapi_sleep.c
---- a_IOCTOC/libs/sapi/src/sapi_sleep.c	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/sapi/src/sapi_sleep.c ./libs/sapi/src/sapi_sleep.c
+--- a_Pk9wCu/libs/sapi/src/sapi_sleep.c	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/sapi/src/sapi_sleep.c	2017-03-15 19:17:44.827961328 -0300
 @@ -0,0 +1,66 @@
 +/* Copyright 2016, Eric Pernia.
@@ -42205,8 +42206,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +}
 +
 +/*==================[end of file]============================================*/
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/sapi/src/sapi_spi.c ./libs/sapi/src/sapi_spi.c
---- a_IOCTOC/libs/sapi/src/sapi_spi.c	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/sapi/src/sapi_spi.c ./libs/sapi/src/sapi_spi.c
+--- a_Pk9wCu/libs/sapi/src/sapi_spi.c	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/sapi/src/sapi_spi.c	2017-03-15 19:17:44.827961328 -0300
 @@ -0,0 +1,79 @@
 +/* Copyright 2016, Eric Pernia.
@@ -42288,8 +42289,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +
 +/** @} doxygen end group definition */
 +/*==================[end of file]============================================*/
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/sapi/src/sapi_tick.c ./libs/sapi/src/sapi_tick.c
---- a_IOCTOC/libs/sapi/src/sapi_tick.c	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/sapi/src/sapi_tick.c ./libs/sapi/src/sapi_tick.c
+--- a_Pk9wCu/libs/sapi/src/sapi_tick.c	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/sapi/src/sapi_tick.c	2017-03-15 19:17:44.827961328 -0300
 @@ -0,0 +1,116 @@
 +/* Copyright 2015-2016, Eric Pernia.
@@ -42408,8 +42409,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +}
 +
 +/*==================[end of file]============================================*/
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/sapi/src/sapi_timer.c ./libs/sapi/src/sapi_timer.c
---- a_IOCTOC/libs/sapi/src/sapi_timer.c	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/sapi/src/sapi_timer.c ./libs/sapi/src/sapi_timer.c
+--- a_Pk9wCu/libs/sapi/src/sapi_timer.c	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/sapi/src/sapi_timer.c	2017-03-15 19:17:44.827961328 -0300
 @@ -0,0 +1,289 @@
 +/* Copyright 2016, Ian Olivieri
@@ -42701,8 +42702,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +}
 +
 +/*==================[end of file]============================================*/
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/libs/sapi/src/sapi_uart.c ./libs/sapi/src/sapi_uart.c
---- a_IOCTOC/libs/sapi/src/sapi_uart.c	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/libs/sapi/src/sapi_uart.c ./libs/sapi/src/sapi_uart.c
+--- a_Pk9wCu/libs/sapi/src/sapi_uart.c	1969-12-31 21:00:00.000000000 -0300
 +++ ./libs/sapi/src/sapi_uart.c	2017-03-15 19:17:44.827961328 -0300
 @@ -0,0 +1,249 @@
 +/* Copyright 2016, Eric Pernia.
@@ -42954,8 +42955,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +}
 +
 +/*==================[end of file]============================================*/
-diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_IOCTOC/Makefile ./Makefile
---- a_IOCTOC/Makefile	1969-12-31 21:00:00.000000000 -0300
+diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_Pk9wCu/Makefile ./Makefile
+--- a_Pk9wCu/Makefile	1969-12-31 21:00:00.000000000 -0300
 +++ ./Makefile	2017-03-15 19:17:44.827961328 -0300
 @@ -0,0 +1,105 @@
 +include config.mk
