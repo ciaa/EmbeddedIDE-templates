@@ -155,7 +155,7 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 --- a_5zNjB6/config.mk	1969-12-31 21:00:00.000000000 -0300
 +++ ./config.mk	2017-03-21 22:03:50.896033013 -0300
 @@ -0,0 +1,10 @@
-+APP=${{Program_Name string:programa}}
++APP=${{Program_Name string:program}}
 +
 +MODULES=app lpc_chip_43xx lpc_board_ciaa_edu_4337 sapi
 +DEFINES=CORE_M4 __USE_LPCOPEN __USE_NEWLIB
