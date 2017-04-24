@@ -40470,7 +40470,7 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +
 +// delay( 1, DELAY_US );
 +
-+void delay (tick_t duration){
++void delay(tick_t duration){
 +    tick_t startTime = tickRead();
 +    while ( (tick_t)(tickRead() - startTime) < duration/tickRateMS );
 + }
