@@ -17,7 +17,7 @@ https://github.com/martinribelotta/embedded-ide/
 - Pico-CIAA
     - pico-ciaa_lpcopen.template
 
-## Project example list
+## Program example list
 
 - EDU-CIAA-NXP and CIAA-NXP
     - edu-ciaa-nxp_program_firmata.template
