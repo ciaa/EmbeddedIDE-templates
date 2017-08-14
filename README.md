@@ -4,14 +4,20 @@ Templates for embedded-ide:
 
 https://github.com/martinribelotta/embedded-ide/
 
-### Project list
+## Template list
 
 - PC
     - gcc-exec.template: Local GCC project
-- CIAA-NXP and EDU-CIAA-NXP
-    - lpcopen.template: EDU-CIAA LPCOpen blinking example
-    - sAPI-Project.template: EDU-CIAA sAPI blinking example
-    - Firmware-v1_5.template: EDU-CIAA sAPI+LPCOpen work in progress
+- EDU-CIAA-NXP and CIAA-NXP
+    - edu-ciaa-nxp_lib-sapi.template
+    - edu-ciaa-nxp_lpcopen.template
+    - edu-ciaa-nxp_rkh.template
+    - edu-ciaa-nxp_snap4Arduino.template
     - rkh.template: RKH statecharts Framework blinking example
 - Pico-CIAA
-    - lpcopen-picociaa.template: PicoCIAA LPCOpen blinking example
+    - pico-ciaa_lpcopen.template
+
+## Project example list
+
+- EDU-CIAA-NXP and CIAA-NXP
+    - edu-ciaa-nxp_program_firmata.template
