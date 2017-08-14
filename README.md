@@ -8,7 +8,7 @@ https://github.com/martinribelotta/embedded-ide/
 
 - PC
     - **gcc-exec.template**: Local GCC project
-- EDU-CIAA-NXP and CIAA-NXP
+- EDU-CIAA-NXP
     - **edu-ciaa-nxp_lib-sapi.template**: EDU-CIAA-NXP template with sAPI and LPCOpen, includes a sAPI blinky example.
     - **edu-ciaa-nxp_lpcopen.template**: EDU-CIAA-NXP template with LPCOpen, includes a LPCOpen blinky example.
     - **edu-ciaa-nxp_rkh.template**: RKH statecharts Framework blinky example.
