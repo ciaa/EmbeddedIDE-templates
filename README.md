@@ -15,6 +15,8 @@ https://github.com/martinribelotta/embedded-ide/
     - **edu-ciaa-nxp_snap4Arduino.template**: EDU-CIAA-NXP template with snap4Arduino-like functions, sAPI and LPCOpen, includes a snap4Arduino-like functions blinky example.
 - Pico-CIAA
     - **pico-ciaa_lpcopen.template**: Pico-CIAA template with LPCOpen, includes a LPCOpen blinky example.
+- EFM32
+    - **efm32_sapi.template**: EFM32HG template with emlib and sApi
 
 ## Program list
 
