@@ -4,7 +4,7 @@
 <p>This template includes:</p>
 <ul>
    <li>ciaa-nxp.cfg, a script for OpenOCD with LPC4337 microcontroller and FTDI FT2232 debugger.</li>
-   <li>main.c basic C example.</li>
+   <li>program.c basic C example.</li>
    <li>sAPI library v0.5.0.</li>
    <li>Vendor library LPCOpen v2.16:</li>
    <li>
