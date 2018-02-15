@@ -1,18 +1,11 @@
 <h1 style="margin: 0; padding: 0; text-align: center;">EDU-CIAA-NXP</h1>
 <h2 style="margin: 0; padding: 0; text-align: center;">Program: Micropython 1.0 implementation</h2>
 <h3 style="color: blue;">by Martin Ribelotta and Ernesto Gigliotti</h3>
-<p>This program includes:</p>
-<ul>
-   <li>ciaa-nxp.cfg, a script for OpenOCD with LPC4337 microcontroller and FTDI FT2232 debugger.</li>
-   <li>main.c is a Micropython 1.0 implementation for EDU-CIAA-NXP.</li>
-   <li>Vendor library LPCOpen v2.16:</li>
-   <li>
-      <ul>
-         <li>lpc_board.</li>
-         <li>lpc_chip.</li>
-      </ul>
-   </li>
-</ul>
+<p>
+   This program is a Micropython 1.0 implementation for EDU-CIAA-NXP.
+   Only include binary for flashing into board. For source code access please view:
+   <a href="https://github.com/ernesto-g/micropython">https://github.com/ernesto-g/micropython</a>
+</p>
 
 diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_bf9Cq8/ciaa-nxp.cfg ./ciaa-nxp.cfg
 --- a_bf9Cq8/ciaa-nxp.cfg	1969-12-31 21:00:00.000000000 -0300

@@ -1,3 +1,19 @@
+<h1 style="margin: 0; padding: 0; text-align: center;">EDU-CIAA-NXP</h1>
+<h2 style="margin: 0; padding: 0; text-align: center;">Plantilla: Framework de F.S.M. para S.E. de tiempo real RKH</h2>
+<h3 style="color: blue;">por Dario Bali√±a</h3>
+<p>
+   RKH es un paquete de software multiplataforma que provee un 
+   conjunto de servicios comunes y fundamentales entre 
+   aplicaciones del mismo dominio, en especial los embedded 
+   systems, cuyo objetivo es facilitar el desarrollo de sistemas 
+   parcialmente o totalmente reactivos, en los cuales su 
+   comportamiento din√°mico se representa mediante m√°quinas de 
+   estados planas y/o Statecharts, incluyendo aquellos con 
+   restricciones temporales o real-time dentro de un marco formal, 
+   simple, bien definido y estructurado.
+   M√°s informaci√≥n en: <a href="http://vortexmakes.com/">http://vortexmakes.com/</a>
+</p>
+
 diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_qSC69Z/app/inc/blinky.h ./app/inc/blinky.h
 --- a_qSC69Z/app/inc/blinky.h	1969-12-31 21:00:00.000000000 -0300
 +++ ./app/inc/blinky.h	2018-01-19 23:55:10.952318166 -0300
@@ -987,7 +1003,7 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +
 +/* -------------------------------- Authors -------------------------------- */
 +/*
-+ *  DaBa  Dario BaliÒa       dariosb@gmail.com
++ *  DaBa  Dario Bali\F1a       dariosb@gmail.com
 + */
 +
 +/* --------------------------------- Module -------------------------------- */
@@ -1155,7 +1171,7 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +
 +/* -------------------------------- Authors -------------------------------- */
 +/*
-+ *  DaBa  Dario BaliÒa       dariosb@gmail.com
++ *  DaBa  Dario Bali\F1a       dariosb@gmail.com
 + */
 +
 +/* --------------------------------- Notes --------------------------------- */
@@ -45575,7 +45591,7 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 + *	respectively. Thus, use these names as target vertex in a transition. 
 + *
 + *	Shallow history means that history applies to the current nesting context
-+ *	only ñ states nested more deeply are not affected by the presence of a
++ *	only \96 states nested more deeply are not affected by the presence of a
 + *	history pseudostates in a higher context.
 + *	Deep history applies downwards to all levels of nesting.
 + *
@@ -45881,7 +45897,7 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 + *	RKH_CREATE_COMP_REGION_STATE() macro.
 + *
 + *	Shallow history means that history applies to the current nesting context 
-+ *	only ñ states nested more deeply are not affected by the presence of a 
++ *	only \96 states nested more deeply are not affected by the presence of a 
 + *	history pseudostates in a higher context.
 + *	
 + *	\note
@@ -48196,7 +48212,7 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +/* -------------------------------- Authors -------------------------------- */
 +/*
 + *  LeFr  Leandro Francucci  francuccilea@gmail.com
-+ *  DaBa  Dario BaliÒa       dariosb@gmail.com
++ *  DaBa  Dario Bali\F1a       dariosb@gmail.com
 + */
 +
 +/* --------------------------------- Module -------------------------------- */
