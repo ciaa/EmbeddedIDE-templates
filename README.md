@@ -14,6 +14,7 @@ https://github.com/martinribelotta/embedded-ide/
     - **edu-ciaa-nxp_rkh.template**: RKH statecharts Framework blinky example.
     - **edu-ciaa-nxp_snap4Arduino.template**: EDU-CIAA-NXP template with snap4Arduino-like functions, sAPI and LPCOpen, includes a snap4Arduino-like functions blinky example.
     - **edu-ciaa-nxp_Assember.template**: Assembler template (only in main, all libs, and api maintain in C)
+    - **EDU-CIAA-NXP_CIAA-NXP_InRAM.template**: Execute code in RAM without FLASH degradation (for testing)
 - Pico-CIAA
     - **pico-ciaa_lpcopen.template**: Pico-CIAA template with LPCOpen, includes a LPCOpen blinky example.
 - EFM32
