@@ -13,7 +13,7 @@ diff -Naur -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.co
 +#define __MAIN_H__
 +
 +/*
-+ * Add definitions here
++ * Add definitions  here
 + */
 +
 +#endif
