@@ -2,7 +2,7 @@
 <h3 style="color: blue;">by Martin Ribelotta</h3>
 <p>This template includes:</p>
 <ul>
-   <li>A basic C example to run in your PC.</li>
+   <li>A basic C example to run in your PC</li>
 </ul>
 
 diff -Naur -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.config*' -x '*.conf' -x autoconf.h a_16VwRS/inc/main.h ./inc/main.h
@@ -13,7 +13,7 @@ diff -Naur -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x '*.lst' -x '*.map' -x '.co
 +#define __MAIN_H__
 +
 +/*
-+ * Add definitions here
++ * Add definitions  here
 + */
 +
 +#endif
