@@ -43203,8 +43203,8 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +     or sensitivity of the sensors)
 +    */
 +typedef enum {
-+   QMC5883L_2_Gauss = 0, /* ± 2 Ga */
-+   QMC5883L_8_Gauss = 1, /* ± 8 Ga  */
++   QMC5883L_2_Gauss = 0, /* ï¿½ 2 Ga */
++   QMC5883L_8_Gauss = 1, /* ï¿½ 8 Ga  */
 +   QMC5883L_DEFAULT_gain = QMC5883L_8_Gauss
 +} QMC5883L_gain_t;
 +
@@ -103699,15 +103699,15 @@ diff -u -r --unidirectional-new-file -x '.git*' -x '*.o' -x '*.d' -x '*.elf' -x 
 +echo ""
 +echo "Openocd is runninng on $ocd_HOSTOS" 
 +echo ""
-+if { $ocd_HOSTOS == "linux" } {
-+   dap create $_CHIPNAME.m4.dap -chain-position $_CHIPNAME.m4
-+   target create $_CHIPNAME.m4 cortex_m -dap $_CHIPNAME.m4.dap
-+   dap create $_CHIPNAME.m0.dap -chain-position $_CHIPNAME.m0
-+   target create $_CHIPNAME.m0 cortex_m -dap $_CHIPNAME.m0.dap
-+} else {
++#if { $ocd_HOSTOS == "linux" } {
++#   dap create $_CHIPNAME.m4.dap -chain-position $_CHIPNAME.m4
++#   target create $_CHIPNAME.m4 cortex_m -dap $_CHIPNAME.m4.dap
++#   dap create $_CHIPNAME.m0.dap -chain-position $_CHIPNAME.m0
++#   target create $_CHIPNAME.m0 cortex_m -dap $_CHIPNAME.m0.dap
++#} else {
 +   target create $_CHIPNAME.m4 cortex_m -chain-position $_CHIPNAME.m4
 +   target create $_CHIPNAME.m0 cortex_m -chain-position $_CHIPNAME.m0
-+}
++#}
 +
 +set _WORKAREASIZE 0x8000
 +$_CHIPNAME.m4 configure -work-area-phys 0x10000000 -work-area-size $_WORKAREASIZE
